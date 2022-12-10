@@ -19,7 +19,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         seminarRoom.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         addChild(seminarRoom)
         physicsWorld.contactDelegate = self
-        let backgroundMusic = SKAudioNode(fileNamed: "gameplay.wav")
+        let backgroundMusic = SKAudioNode(fileNamed: "gameplay.mp3")
         backgroundMusic.autoplayLooped = true
         backgroundMusic.isPositional = false
         backgroundMusic.run(SKAction.changeVolume(to: 0.15, duration: 0))
@@ -56,13 +56,19 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         fruitTextures = [apple1, apple2, apple3]
         
-    
+        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 150 , height: 38))
+        
+        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.1))
+
+        scoreRect.name = "Score Rectangle"
+        addChild(scoreRect)
+
         pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
         pointsLabel.numberOfLines = 3
         pointsLabel.text = "\(points) Apples"
         pointsLabel.fontColor = UIColor.yellow
         pointsLabel.fontSize = CGFloat(frame.height * 0.04)
-        pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.1))
+        pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.125))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
     }
@@ -77,7 +83,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
    
     func addFruit(at location: CGPoint) {
-        let random = Int(randomSource.nextUniform() * 7.0)
+        let random = Int(randomSource.nextUniform() * 5.0)
         let fruitChoice = random % fruitTextures.count
         let fruitTexture = fruitTextures[fruitChoice]
         let fruit = SKSpriteNode(texture: fruitTexture)
@@ -156,7 +162,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.05
+        let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
@@ -175,7 +181,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.05
+        let duration = 0.5
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
@@ -184,6 +190,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             let action = SKAction.moveBy(x: increment, y: 0, duration: duration)
             action.timingMode = .easeInEaseOut
             basket.run(action)
+        
         }
         else {
             let action = SKAction.moveBy(x: -increment, y: 0, duration: duration)

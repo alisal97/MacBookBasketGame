@@ -26,7 +26,7 @@ class Intro: SKScene {
         
         let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
         textNode.fontColor = UIColor.yellow
-        textNode.text = "Push Santo \nto collect Apples \nfor Santo!"
+        textNode.text = "Tap Santo \nTo collect Apples \nFor Santo!"
         textNode.numberOfLines = 3
         textNode.fontSize = CGFloat(frame.height * 0.05)
         textNode.horizontalAlignmentMode = .center

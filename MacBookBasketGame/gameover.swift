@@ -26,7 +26,7 @@ class gameover: SKScene {
 
         let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
         textNode.fontColor = UIColor.yellow
-        textNode.text = "GAME OVER!! \nSanto is ANGRY!. \nPush Santo to try AGAIN!."
+        textNode.text = "GAME OVER!! \nSanto is ANGRY!. \nTap Santo to try AGAIN!."
         textNode.numberOfLines = 3
         textNode.fontSize = CGFloat(frame.height * 0.0333)
         textNode.horizontalAlignmentMode = .center

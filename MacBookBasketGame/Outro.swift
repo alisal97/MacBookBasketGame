@@ -25,7 +25,7 @@ class Outro: SKScene {
 
         let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
         textNode.fontColor = UIColor.yellow
-        textNode.text = "Job Complete \nSanto is Happy!. \nPush Santo to play again!."
+        textNode.text = "Job Complete \nSanto is Happy!. \nTap Santo to play again!."
         textNode.numberOfLines = 3
         textNode.fontSize = CGFloat(frame.height * 0.0355)
         textNode.horizontalAlignmentMode = .center
