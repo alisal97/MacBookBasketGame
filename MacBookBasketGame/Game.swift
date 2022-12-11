@@ -65,41 +65,55 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
         pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
         pointsLabel.numberOfLines = 3
-        pointsLabel.text = "\(points) Apples"
+        pointsLabel.text = "\(points) / 31"
         pointsLabel.fontColor = UIColor.yellow
         pointsLabel.fontSize = CGFloat(frame.height * 0.04)
         pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.125))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
     }
-     
+   
     override func update(_ currentTime: TimeInterval) {
         let choice = randomSource.nextUniform()
-        if (choice < 0.02) {
+        if (choice < 0.0083) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
+            let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
+            let ySpec = frame.height
             addFruit(at: CGPoint(x: x, y: y))
+            addSpecial(at:CGPoint(x: xSpec, y: ySpec))
+
         }
     }
-   
+    
     func addFruit(at location: CGPoint) {
-        let random = Int(randomSource.nextUniform() * 5.0)
+        let random = Int(randomSource.nextUniform() * 3.5)
         let fruitChoice = random % fruitTextures.count
-        let specApple = fruitTextures[0]
         let fruitTexture = fruitTextures[fruitChoice]
-        let SpecialApple = SKSpriteNode(texture: specApple)
         let fruit = SKSpriteNode(texture: fruitTexture)
         fruit.position = location
-        let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 0.5, height: 0.5))
-        SpecialApple.name = "Rainbow"
+        let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
         fruitBody.isDynamic = true
         fruitBody.affectedByGravity = false
         fruitBody.contactTestBitMask = 0xffffffff
         fruit.physicsBody = fruitBody
-        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.5)))
+        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.7)))
         fruit.name = "Fruit"
         addChild(fruit)
-        
+       
+    }
+    func addSpecial(at location: CGPoint) {
+        let specApple = SKTexture(imageNamed: "rainbowApple.png")
+        let SpecialApple = SKSpriteNode(texture: specApple)
+        let specAppleBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+        SpecialApple.position = location
+        SpecialApple.physicsBody = specAppleBody
+        specAppleBody.isDynamic = true
+        specAppleBody.affectedByGravity = false
+        specAppleBody.contactTestBitMask = 0xffffffff
+        SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.15)))
+        SpecialApple.name = "Rainbow"
+        addChild(SpecialApple)
         
     }
 
@@ -117,7 +131,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     winningPoints()
                     losingPoints()
                 }
-                
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
@@ -139,6 +152,20 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     pointsLabel.text = String(points + 1)
                     points += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameA == "Ground" && nameB == "Rainbow") {
+                    nodeB.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points - 2)
+                    points -= 2
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameB == "Ground" && nameA == "Rainbow") {
+                    nodeA.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points - 2)
+                    points -= 2
                     winningPoints()
                     losingPoints()
                 }
