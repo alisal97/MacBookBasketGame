@@ -76,13 +76,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
    
     override func update(_ currentTime: TimeInterval) {
         let choice = randomSource.nextUniform()
-        if (choice < 0.01) {
+        if (choice < 0.0125) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             addFruit(at: CGPoint(x: x, y: y))
             
         }
-        else if ( choice <= 0.0139) && (choice >= 0.01) {
+        else if ( choice <= 0.0149) && (choice >= 0.0127) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
@@ -90,7 +90,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
 
     func addFruit(at location: CGPoint) {
-        let random = Int(randomSource.nextUniform() * 3.5)
+        let random = Int(randomSource.nextUniform() * 9)
         let fruitChoice = random % fruitTextures.count
         let fruitTexture = fruitTextures[fruitChoice]
         let fruit = SKSpriteNode(texture: fruitTexture)
