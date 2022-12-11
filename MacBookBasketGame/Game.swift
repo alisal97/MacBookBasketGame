@@ -111,18 +111,18 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
                 if (nameA == "Basket" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String(points + 2)
                     points += 2
-                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     winningPoints()
                     losingPoints()
                 }
                 
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String(points + 2)
                     points += 2
-                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     winningPoints()
                     losingPoints()
                 }
@@ -160,7 +160,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             }
 
     func losingPoints() {
-        if (points <= -2) {
+        if (points <= -3) {
             if let view = view {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
@@ -170,7 +170,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
 
     func winningPoints() {
-        if (points >= 30) {
+        if (points >= 31) {
             if let view = view {
                 let outro = Outro(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
