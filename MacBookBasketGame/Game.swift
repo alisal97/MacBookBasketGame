@@ -12,6 +12,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var pointsLabel: SKLabelNode!
     var seminarRoom: SKSpriteNode!
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
+    var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     
     override func didMove(to view: SKView) {
@@ -75,17 +76,19 @@ class Game: SKScene, SKPhysicsContactDelegate {
    
     override func update(_ currentTime: TimeInterval) {
         let choice = randomSource.nextUniform()
-        if (choice < 0.0083) {
+        if (choice < 0.01) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
+            addFruit(at: CGPoint(x: x, y: y))
+            
+        }
+        else if ( choice <= 0.0139) && (choice >= 0.01) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
-            addFruit(at: CGPoint(x: x, y: y))
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
-
         }
     }
-    
+
     func addFruit(at location: CGPoint) {
         let random = Int(randomSource.nextUniform() * 3.5)
         let fruitChoice = random % fruitTextures.count
@@ -97,7 +100,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         fruitBody.affectedByGravity = false
         fruitBody.contactTestBitMask = 0xffffffff
         fruit.physicsBody = fruitBody
-        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.7)))
+        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.65)))
         fruit.name = "Fruit"
         addChild(fruit)
        
@@ -111,7 +114,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         specAppleBody.isDynamic = true
         specAppleBody.affectedByGravity = false
         specAppleBody.contactTestBitMask = 0xffffffff
-        SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.15)))
+        SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.3)))
         SpecialApple.name = "Rainbow"
         addChild(SpecialApple)
         
