@@ -105,59 +105,59 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
 
 
-    func didBegin(_ contact: SKPhysicsContact) { // called whenever two physics bodies hit each other
+    func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { return }
         guard let nameA = nodeA.name, let nameB = nodeB.name else { return }
         
-        if (nameA == "Basket" && nameB == "Rainbow") {
-            nodeB.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 2)
-            points += 2
-            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-            winningPoints()
-            losingPoints()
-        }
-        
-        else if (nameB == "Basket" && nameA == "Rainbow") {
-            nodeA.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 2)
-            points += 2
-            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-            winningPoints()
-            losingPoints()
-        }
-        else if (nameA == "Basket" && nameB == "Fruit") {
-            nodeB.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 1)
-            points += 1
-            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-            winningPoints()
-            losingPoints()
-        }
-        else if (nameB == "Basket" && nameA == "Fruit") {
-            nodeA.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points + 1)
-            points += 1
-            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-            winningPoints()
-            losingPoints()
-        }
-        else if (nameA == "Ground" && nameB == "Fruit") {
-            nodeB.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points - 1)
-            points -= 1
-            winningPoints()
-            losingPoints()
-        }
-        else if (nameB == "Ground" && nameA == "Fruit") {
-            nodeA.run(SKAction.removeFromParent())
-            pointsLabel.text = String(points - 1)
-            points -= 1
-            winningPoints()
-            losingPoints()
-        }
-        
-    }
+                if (nameA == "Basket" && nameB == "Rainbow") {
+                    nodeB.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points + 2)
+                    points += 2
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    winningPoints()
+                    losingPoints()
+                }
+                
+                else if (nameB == "Basket" && nameA == "Rainbow") {
+                    nodeA.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points + 2)
+                    points += 2
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameA == "Basket" && nameB == "Fruit") {
+                    nodeB.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points + 1)
+                    points += 1
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameB == "Basket" && nameA == "Fruit") {
+                    nodeA.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points + 1)
+                    points += 1
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameA == "Ground" && nameB == "Fruit") {
+                    nodeB.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points - 1)
+                    points -= 1
+                    winningPoints()
+                    losingPoints()
+                }
+                else if (nameB == "Ground" && nameA == "Fruit") {
+                    nodeA.run(SKAction.removeFromParent())
+                    pointsLabel.text = String(points - 1)
+                    points -= 1
+                    winningPoints()
+                    losingPoints()
+                }
+                
+            }
 
     func losingPoints() {
         if (points <= -2) {
