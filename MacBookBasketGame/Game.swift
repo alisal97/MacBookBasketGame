@@ -85,14 +85,16 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func addFruit(at location: CGPoint) {
         let random = Int(randomSource.nextUniform() * 5.0)
         let fruitChoice = random % fruitTextures.count
+        let specApple = fruitTextures[0]
         let fruitTexture = fruitTextures[fruitChoice]
+        let SpecialApple = SKSpriteNode(texture: specApple)
         let fruit = SKSpriteNode(texture: fruitTexture)
         fruit.position = location
-        let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1.0, height: 1.0))
-        
+        let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 0.5, height: 0.5))
+        SpecialApple.name = "Rainbow"
         fruitBody.isDynamic = true
         fruitBody.affectedByGravity = false
-        fruitBody.contactTestBitMask = 0xffffffff // hit EVERYTHING
+        fruitBody.contactTestBitMask = 0xffffffff
         fruit.physicsBody = fruitBody
         fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.5)))
         fruit.name = "Fruit"
@@ -107,7 +109,24 @@ class Game: SKScene, SKPhysicsContactDelegate {
         guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { return }
         guard let nameA = nodeA.name, let nameB = nodeB.name else { return }
         
-        if (nameA == "Basket" && nameB == "Fruit") {
+        if (nameA == "Basket" && nameB == "Rainbow") {
+            nodeB.run(SKAction.removeFromParent())
+            pointsLabel.text = String(points + 2)
+            points += 2
+            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+            winningPoints()
+            losingPoints()
+        }
+        
+        else if (nameB == "Basket" && nameA == "Rainbow") {
+            nodeA.run(SKAction.removeFromParent())
+            pointsLabel.text = String(points + 2)
+            points += 2
+            self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+            winningPoints()
+            losingPoints()
+        }
+        else if (nameA == "Basket" && nameB == "Fruit") {
             nodeB.run(SKAction.removeFromParent())
             pointsLabel.text = String(points + 1)
             points += 1
@@ -162,7 +181,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.09
+        let duration = 0.0
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
@@ -181,7 +200,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.09
+        let duration = 0.1
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)

@@ -23,8 +23,8 @@
 		106E161C2944ACB10026A7F5 /* santoFace.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16172944ACB10026A7F5 /* santoFace.png */; };
 		106E161D2944ACB10026A7F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16182944ACB10026A7F5 /* ViewController.swift */; };
 		106E161E2944ACB10026A7F5 /* SeminarRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16192944ACB10026A7F5 /* SeminarRoom.png */; };
-		106E161F2944ACB10026A7F5 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E161A2944ACB10026A7F5 /* Player.png */; };
 		107D534E2944BC86007D0553 /* gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107D534D2944BC86007D0553 /* gameplay.mp3 */; };
+		10AD30232945570800CFDD9E /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AD30222945570800CFDD9E /* Player.png */; };
 		10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C759032944BBBA00779183 /* gameTheme.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,8 @@
 		106E16172944ACB10026A7F5 /* santoFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = santoFace.png; sourceTree = "<group>"; };
 		106E16182944ACB10026A7F5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		106E16192944ACB10026A7F5 /* SeminarRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeminarRoom.png; sourceTree = "<group>"; };
-		106E161A2944ACB10026A7F5 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		107D534D2944BC86007D0553 /* gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplay.mp3; sourceTree = "<group>"; };
+		10AD30222945570800CFDD9E /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		10C759032944BBBA00779183 /* gameTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameTheme.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,10 +84,11 @@
 				106E16022944AC7A0026A7F5 /* AppDelegate.swift */,
 				106E15F52944AC030026A7F5 /* Main.storyboard */,
 				106E15F82944AC040026A7F5 /* Assets.xcassets */,
-				106E16062944AC900026A7F5 /* apple1.png */,
 				106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */,
+				106E16062944AC900026A7F5 /* apple1.png */,
 				106E16052944AC900026A7F5 /* apple2.png */,
 				106E160E2944AC980026A7F5 /* apple3.png */,
+				10AD30222945570800CFDD9E /* Player.png */,
 				106E160F2944AC980026A7F5 /* Game.swift */,
 				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
 				107D534D2944BC86007D0553 /* gameplay.mp3 */,
@@ -95,7 +96,6 @@
 				106E16082944AC900026A7F5 /* Intro.swift */,
 				106E16122944ACA40026A7F5 /* Outro.swift */,
 				106E16142944ACAA0026A7F5 /* gameover.swift */,
-				106E161A2944ACB10026A7F5 /* Player.png */,
 				106E16162944ACB10026A7F5 /* Santo.png */,
 				106E16172944ACB10026A7F5 /* santoFace.png */,
 				106E16192944ACB10026A7F5 /* SeminarRoom.png */,
@@ -164,8 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				107D534E2944BC86007D0553 /* gameplay.mp3 in Resources */,
+				10AD30232945570800CFDD9E /* Player.png in Resources */,
 				106E161C2944ACB10026A7F5 /* santoFace.png in Resources */,
-				106E161F2944ACB10026A7F5 /* Player.png in Resources */,
 				106E15F72944AC030026A7F5 /* Main.storyboard in Resources */,
 				10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */,
 				106E161E2944ACB10026A7F5 /* SeminarRoom.png in Resources */,
