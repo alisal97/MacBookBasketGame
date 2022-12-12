@@ -2,6 +2,12 @@
 import Foundation
 import SpriteKit
 
+
+struct leaderboardInfo: Codable {
+    var id = UUID()
+    var gameScore: Int
+}
+
 class Leaderboard: SKScene {
     var exitButton: SKLabelNode!
     

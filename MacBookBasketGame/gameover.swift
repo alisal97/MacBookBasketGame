@@ -37,7 +37,7 @@ class gameover: SKScene {
         
         playButton = SKSpriteNode(imageNamed: "Santo.png")
         playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
-        playButton.name = "Play Label"
+        playButton.name = "Play Button"
         addChild(playButton)
         
         
@@ -51,6 +51,7 @@ class gameover: SKScene {
         leaderboardButton.text = "Open Leaderboard"
         leaderboardButton.fontColor = UIColor.yellow
         leaderboardButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 3))
+        leaderboardButton.name = "Leaderboard Button"
         addChild(leaderboardButton)
 
         
@@ -58,25 +59,27 @@ class gameover: SKScene {
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let events = event?.allTouches
-        let touchEvent = events?.first
-        let touchLocation = touchEvent?.location(in: self)
-        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
-        if playButton.contains(location) {
-            if let view = view {
-                let game = Game(size: size)
-                let transition = SKTransition.fade(withDuration: 1.0)
-                view.presentScene(game, transition: transition)
-                }
-            else if leaderboardButton.contains(location) {
-                    if let view = view {
-                        let leaderBoard = Leaderboard(size: size)
-                        let transition = SKTransition.fade(withDuration: 1.0)
-                        view.presentScene(leaderBoard, transition: transition)
-
+        for touch in touches {
+            let touchLocation = touch.location(in: self)
+            let name = atPoint(touchLocation).name
+            if name == "Play Button" {
+                if let view = view {
+                    let game = Game(size: size)
+                    let transition = SKTransition.fade(withDuration: 1.0)
+                    view.presentScene(game, transition: transition)
                     }
-                }
             }
+                else if name == "Leaderboard Button" {
+                        if let view = view {
+                            let leaderBoard = Leaderboard(size: size)
+                            let transition = SKTransition.fade(withDuration: 1.0)
+                            view.presentScene(leaderBoard, transition: transition)
+
+                        }
+                    
+                }
+        }
+      
             }
         }
         

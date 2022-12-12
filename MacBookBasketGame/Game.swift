@@ -17,6 +17,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     
+
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
         seminarRoom.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
@@ -208,6 +209,8 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
                 view.presentScene(gameOver, transition: transition)
+                let leaderboardScore = leaderboardInfo(gameScore: self.points)
+
             }
         }
     }
