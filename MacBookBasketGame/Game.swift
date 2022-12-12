@@ -230,7 +230,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.01)
-        let duration = 0.1
+        let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
