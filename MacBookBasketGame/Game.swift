@@ -33,9 +33,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
     
     func createSceneContent() {
-        ground = SKSpriteNode(color: UIColor(red: (0 / 255.0), green: (0 / 255.0), blue: (0 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: frame.height * 0.05))
+        ground = SKSpriteNode(color: UIColor(red: (0 / 255.0), green: (0 / 255.0), blue: (0 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: frame.height * 0.21))
         let groundBody = SKPhysicsBody(rectangleOf: ground.size)
-        ground.position = CGPoint(x: frame.width / 2.0, y: 0.0)
+        ground.position = CGPoint(x: frame.width / 2.0, y: 0.19)
         groundBody.isDynamic = false
         groundBody.affectedByGravity = false
         ground.physicsBody = groundBody
@@ -44,7 +44,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         let basketTexture = SKTexture(imageNamed: "Player.png")
         basket = SKSpriteNode(texture: basketTexture)
-        basket.position = CGPoint(x: frame.midX, y: frame.minY + 0.05 * frame.height)
+        basket.position = CGPoint(x: frame.midX, y: frame.minY + 0.157 * frame.height)
         let basketBody = SKPhysicsBody(rectangleOf: basket.size)
         basketBody.isDynamic = false
         basketBody.affectedByGravity = false
@@ -227,7 +227,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let increment = CGFloat(frame.width * 0.02)
-        let duration = 0.0
+        let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
