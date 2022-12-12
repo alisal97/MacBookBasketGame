@@ -7,9 +7,11 @@ import GameplayKit
 class Game: SKScene, SKPhysicsContactDelegate {
     
     var points: Int = 0
+    var lives: Int = 3
     var basket: SKSpriteNode!
     var ground: SKSpriteNode!
     var pointsLabel: SKLabelNode!
+    var livesLabel: SKLabelNode!
     var seminarRoom: SKSpriteNode!
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
@@ -18,6 +20,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
         seminarRoom.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+    
         addChild(seminarRoom)
         physicsWorld.contactDelegate = self
         let backgroundMusic = SKAudioNode(fileNamed: "gameplay.mp3")
@@ -57,32 +60,52 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         fruitTextures = [apple1, apple2, apple3]
         
-        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 150 , height: 38))
+        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 123 , height: 35))
         
-        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.1))
+        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.105))
 
         scoreRect.name = "Score Rectangle"
         addChild(scoreRect)
+        
+
 
         pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
         pointsLabel.numberOfLines = 3
-        pointsLabel.text = "\(points) / 31"
+        pointsLabel.text = "Score: \(points)"
         pointsLabel.fontColor = UIColor.yellow
-        pointsLabel.fontSize = CGFloat(frame.height * 0.04)
+        pointsLabel.fontSize = CGFloat(frame.height * 0.03)
         pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.125))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
+        
+        
+        let livesRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 135 , height: 35))
+        
+        livesRect.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.105))
+
+        livesRect.name = "lives Rectangle"
+        addChild(livesRect)
+
+        livesLabel = SKLabelNode(fontNamed: "Helvetica Bold")
+        livesLabel.numberOfLines = 3
+        livesLabel.text = "Lives: \(lives) ❤️"
+        livesLabel.fontColor = UIColor.yellow
+        livesLabel.fontSize = CGFloat(frame.height * 0.03)
+        livesLabel.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.125))
+        livesLabel.name = "Lives Label"
+        addChild(livesLabel)
+
     }
    
     override func update(_ currentTime: TimeInterval) {
         let choice = randomSource.nextUniform()
-        if (choice < 0.0125) {
+        if (choice < 0.0115) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             addFruit(at: CGPoint(x: x, y: y))
             
         }
-        else if ( choice <= 0.0149) && (choice >= 0.0127) {
+        else if ( choice <= 0.0129) && (choice >= 0.0115) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
@@ -91,6 +114,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
     func addFruit(at location: CGPoint) {
         let random = Int(randomSource.nextUniform() * 9)
+        let spawnTime = Double.random(in: 2.3...3.5)
         let fruitChoice = random % fruitTextures.count
         let fruitTexture = fruitTextures[fruitChoice]
         let fruit = SKSpriteNode(texture: fruitTexture)
@@ -100,7 +124,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         fruitBody.affectedByGravity = false
         fruitBody.contactTestBitMask = 0xffffffff
         fruit.physicsBody = fruitBody
-        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 2.65)))
+        fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
         fruit.name = "Fruit"
         addChild(fruit)
        
@@ -108,20 +132,21 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func addSpecial(at location: CGPoint) {
         let specApple = SKTexture(imageNamed: "rainbowApple.png")
         let SpecialApple = SKSpriteNode(texture: specApple)
+        let spawnTime = Double.random(in: 2.3...3.5)
         let specAppleBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
         SpecialApple.position = location
         SpecialApple.physicsBody = specAppleBody
         specAppleBody.isDynamic = true
         specAppleBody.affectedByGravity = false
         specAppleBody.contactTestBitMask = 0xffffffff
-        SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: 3.3)))
+        SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
         SpecialApple.name = "Rainbow"
         addChild(SpecialApple)
         
     }
 
 
-
+    var missedPoints: [Int] = []
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { return }
         guard let nameA = nodeA.name, let nameB = nodeB.name else { return }
@@ -129,68 +154,56 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 if (nameA == "Basket" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String(points + 2)
+                    pointsLabel.text = String("Score: \(points + 2)")
                     points += 2
-                    winningPoints()
-                    losingPoints()
                 }
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String(points + 2)
+                    pointsLabel.text = String("Score: \(points + 2)")
                     points += 2
-                    winningPoints()
-                    losingPoints()
                 }
                 else if (nameA == "Basket" && nameB == "Fruit") {
                     nodeB.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points + 1)
+                    pointsLabel.text = String("Score: \(points + 1)")
                     points += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    winningPoints()
-                    losingPoints()
                 }
                 else if (nameB == "Basket" && nameA == "Fruit") {
                     nodeA.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points + 1)
+                    pointsLabel.text = String("Score: \(points + 1)")
                     points += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    winningPoints()
-                    losingPoints()
                 }
                 else if (nameA == "Ground" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points - 2)
-                    points -= 2
-                    winningPoints()
-                    losingPoints()
+                    livesLabel.text = String("Lives: \(lives - 1) ❤️")
+                    lives -= 1
+                    liveCounter()
                 }
                 else if (nameB == "Ground" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points - 2)
-                    points -= 2
-                    winningPoints()
-                    losingPoints()
+                    livesLabel.text = String("Lives: \(lives - 1) ❤️")
+                    lives -= 1
+                    liveCounter()
                 }
                 else if (nameA == "Ground" && nameB == "Fruit") {
                     nodeB.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points - 1)
-                    points -= 1
-                    winningPoints()
-                    losingPoints()
+                    livesLabel.text = String("Lives: \(lives - 1) ❤️")
+                    lives -= 1
+                    liveCounter()
                 }
                 else if (nameB == "Ground" && nameA == "Fruit") {
                     nodeA.run(SKAction.removeFromParent())
-                    pointsLabel.text = String(points - 1)
-                    points -= 1
-                    winningPoints()
-                    losingPoints()
+                    livesLabel.text = String("Lives: \(lives - 1) ❤️")
+                    lives -= 1
+                    liveCounter()
                 }
                 
             }
 
-    func losingPoints() {
-        if (points <= -3) {
+    func liveCounter() {
+        if (lives == 0) {
             if let view = view {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
@@ -199,18 +212,18 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
     }
 
-    func winningPoints() {
-        if (points >= 31) {
-            if let view = view {
-                let outro = Outro(size: size)
-                let transition = SKTransition.fade(withDuration: 3.0)
-                view.presentScene(outro, transition: transition)
-            }
-        }
-    }
+//    func winningPoints() {
+//        if (points >= 31) {
+//            if let view = view {
+//                let outro = Outro(size: size)
+//                let transition = SKTransition.fade(withDuration: 3.0)
+//                view.presentScene(outro, transition: transition)
+//            }
+//        }
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.01)
+        let increment = CGFloat(frame.width * 0.02)
         let duration = 0.0
         let events = event?.allTouches
         let touchEvent = events?.first
@@ -229,7 +242,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.01)
+        let increment = CGFloat(frame.width * 0.013)
         let duration = 0.09
         let events = event?.allTouches
         let touchEvent = events?.first

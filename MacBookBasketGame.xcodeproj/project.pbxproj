@@ -13,10 +13,8 @@
 		106E16032944AC7A0026A7F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16022944AC7A0026A7F5 /* AppDelegate.swift */; };
 		106E160A2944AC900026A7F5 /* apple2.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16052944AC900026A7F5 /* apple2.png */; };
 		106E160C2944AC900026A7F5 /* appleeatsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 106E16072944AC900026A7F5 /* appleeatsound.mp3 */; };
-		106E160D2944AC900026A7F5 /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16082944AC900026A7F5 /* Intro.swift */; };
 		106E16102944AC980026A7F5 /* apple3.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E160E2944AC980026A7F5 /* apple3.png */; };
 		106E16112944AC980026A7F5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E160F2944AC980026A7F5 /* Game.swift */; };
-		106E16132944ACA40026A7F5 /* Outro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16122944ACA40026A7F5 /* Outro.swift */; };
 		106E16152944ACAA0026A7F5 /* gameover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16142944ACAA0026A7F5 /* gameover.swift */; };
 		106E161B2944ACB10026A7F5 /* Santo.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16162944ACB10026A7F5 /* Santo.png */; };
 		106E161C2944ACB10026A7F5 /* santoFace.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16172944ACB10026A7F5 /* santoFace.png */; };
@@ -27,6 +25,8 @@
 		10AD30232945570800CFDD9E /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AD30222945570800CFDD9E /* Player.png */; };
 		10B65BFE2945665500319433 /* rainbowApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 10B65BFD2945665500319433 /* rainbowApple.png */; };
 		10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C759032944BBBA00779183 /* gameTheme.mp3 */; };
+		10FA0E822947633D00334B7E /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA0E812947633D00334B7E /* Intro.swift */; };
+		10FA0E842947724700334B7E /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA0E832947724700334B7E /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,10 +37,8 @@
 		106E16022944AC7A0026A7F5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		106E16052944AC900026A7F5 /* apple2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple2.png; sourceTree = "<group>"; };
 		106E16072944AC900026A7F5 /* appleeatsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = appleeatsound.mp3; sourceTree = "<group>"; };
-		106E16082944AC900026A7F5 /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		106E160E2944AC980026A7F5 /* apple3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple3.png; sourceTree = "<group>"; };
 		106E160F2944AC980026A7F5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		106E16122944ACA40026A7F5 /* Outro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outro.swift; sourceTree = "<group>"; };
 		106E16142944ACAA0026A7F5 /* gameover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameover.swift; sourceTree = "<group>"; };
 		106E16162944ACB10026A7F5 /* Santo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santo.png; sourceTree = "<group>"; };
 		106E16172944ACB10026A7F5 /* santoFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = santoFace.png; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		10AD30222945570800CFDD9E /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
 		10B65BFD2945665500319433 /* rainbowApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbowApple.png; sourceTree = "<group>"; };
 		10C759032944BBBA00779183 /* gameTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameTheme.mp3; sourceTree = "<group>"; };
+		10FA0E812947633D00334B7E /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
+		10FA0E832947724700334B7E /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +96,9 @@
 				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
 				107D534D2944BC86007D0553 /* gameplay.mp3 */,
 				10C759032944BBBA00779183 /* gameTheme.mp3 */,
-				106E16082944AC900026A7F5 /* Intro.swift */,
-				106E16122944ACA40026A7F5 /* Outro.swift */,
+				10FA0E812947633D00334B7E /* Intro.swift */,
 				106E16142944ACAA0026A7F5 /* gameover.swift */,
+				10FA0E832947724700334B7E /* Leaderboard.swift */,
 				106E16162944ACB10026A7F5 /* Santo.png */,
 				106E16172944ACB10026A7F5 /* santoFace.png */,
 				106E16192944ACB10026A7F5 /* SeminarRoom.png */,
@@ -191,11 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				106E161D2944ACB10026A7F5 /* ViewController.swift in Sources */,
-				106E160D2944AC900026A7F5 /* Intro.swift in Sources */,
+				10FA0E842947724700334B7E /* Leaderboard.swift in Sources */,
 				106E16152944ACAA0026A7F5 /* gameover.swift in Sources */,
+				10FA0E822947633D00334B7E /* Intro.swift in Sources */,
 				106E16112944AC980026A7F5 /* Game.swift in Sources */,
 				106E16032944AC7A0026A7F5 /* AppDelegate.swift in Sources */,
-				106E16132944ACA40026A7F5 /* Outro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

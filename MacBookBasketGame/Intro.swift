@@ -34,7 +34,6 @@ class Intro: SKScene {
         textNode.name = "Welcome Label"
         addChild(textNode)
         
-        // the play button label
         playButton = SKSpriteNode(imageNamed: "santoFace.png")
         playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
         playButton.name = "Play Label"
