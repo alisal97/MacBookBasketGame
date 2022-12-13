@@ -4,10 +4,14 @@ import SpriteKit
 import GameplayKit
 
 var totalApples: Int = 0
+var points: Int = 0
+
+
+
 
 class Game: SKScene, SKPhysicsContactDelegate {
     
-    var points: Int = 0
+//    var points: Int = 0
     var lives: Int = 3
     var basket: SKSpriteNode!
     var animation: SKTexture!
@@ -246,7 +250,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
                 view.presentScene(gameOver, transition: transition)
-//                let leaderboardScore = leaderboardInfo(gameApples Collected self.points)
+            
 
             }
         }

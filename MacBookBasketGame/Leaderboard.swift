@@ -8,15 +8,43 @@ struct leaderboardInfo: Codable {
     var gameScore: Int
 }
 
+let leaderboardScore = leaderboardInfo(gameScore: points)
+let leaderboardScores = [leaderboardScore]
+
+
 class Leaderboard: SKScene {
     var exitButton: SKLabelNode!
+    var leaderboardView: SKLabelNode!
     
+        
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "SeminarRoom.png")
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         createSceneContent()
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(leaderboardScore)
+            UserDefaults.standard.set(data, forKey: "LB")
+        } catch {
+            print("unable to encode Leaderboard \(error)")
+        }
+        
+        if let data = UserDefaults.standard.data(forKey: "LB") {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
+
+                // Decode Note
+                let leaderboardScores = try decoder.decode([leaderboardInfo].self, from: data)
+            } catch {
+                print("Unable to Decode Notes (\(error))")
+            }
+        }
+
+
     }
     
     func createSceneContent() {
@@ -27,6 +55,11 @@ class Leaderboard: SKScene {
 //        leadRect.name = "Leaderboard Rectangle"
 //        addChild(leadRect)
         
+
+        leaderboardView = SKLabelNode(fontNamed: "Barcade Bold")
+//        leaderboardView.text = String(leaderboardScores)
+        leaderboardView.fontColor = UIColor.green
+
         exitButton = SKLabelNode(fontNamed: "Barcade Bold")
         exitButton.text = "Exit"
         exitButton.fontColor = UIColor.green

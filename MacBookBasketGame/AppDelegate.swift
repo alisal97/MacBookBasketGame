@@ -6,6 +6,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var oldApples: Int = UserDefaults.standard.integer(forKey: "Apples");
+//    var oldLeaderboard: Any = UserDefaults.standard.array(forKey: "LB")
 
 
 
