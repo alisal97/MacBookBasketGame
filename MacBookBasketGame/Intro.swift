@@ -46,6 +46,14 @@ class Intro: SKScene {
         playButton.name = "Play Label"
         addChild(playButton)
         
+        let apples = SKLabelNode(fontNamed: "Barcade Bold")
+        apples.text = "SAP Coins: \(totalApples)"
+        apples.fontColor = UIColor.green
+        apples.fontSize = CGFloat(frame.height * 0.023)
+        apples.verticalAlignmentMode = .bottom
+        apples.position = CGPoint(x: (size.width / 2.0), y: (size.height / 8) + (size.height * 0.1))
+        apples.name = "Apples"
+        addChild(apples)
     }
 
     

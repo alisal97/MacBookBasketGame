@@ -3,6 +3,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
+var totalApples: Int = 0
 
 class Game: SKScene, SKPhysicsContactDelegate {
     
@@ -17,7 +18,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
-    var totalApples: Int = 0
 
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
@@ -166,6 +166,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String("Collected: \(points + 2)")
                     points += 2
+                    totalApples += 2
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
                     let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
@@ -178,6 +179,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String("Collected: \(points + 2)")
                     points += 2
+                    totalApples += 2
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
                     let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
@@ -189,6 +191,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     nodeB.run(SKAction.removeFromParent())
                     pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
+                    totalApples += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
@@ -201,6 +204,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     nodeA.run(SKAction.removeFromParent())
                     pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
+                    totalApples += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
@@ -238,7 +242,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
     func liveCounter() {
         if (lives == 0) {
-            totalApples += points
             if let view = view {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
