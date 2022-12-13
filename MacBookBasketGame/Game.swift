@@ -16,7 +16,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
-    
 
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
@@ -61,38 +60,38 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         fruitTextures = [apple1, apple2, apple3]
         
-        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 123 , height: 35))
-        
-        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.105))
+//        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 123 , height: 35))
+//        
+//        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.105))
+//
+//        scoreRect.name = "Score Rectangle"
+//        addChild(scoreRect)
+//        
 
-        scoreRect.name = "Score Rectangle"
-        addChild(scoreRect)
-        
 
-
-        pointsLabel = SKLabelNode(fontNamed: "Helvetica Bold")
+        pointsLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         pointsLabel.numberOfLines = 3
         pointsLabel.text = "Score: \(points)"
-        pointsLabel.fontColor = UIColor.yellow
+        pointsLabel.fontColor = UIColor.green
         pointsLabel.fontSize = CGFloat(frame.height * 0.03)
-        pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.125))
+        pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.123))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
         
         
-        let livesRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 135 , height: 35))
-        
-        livesRect.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.105))
+//        let livesRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 135 , height: 35))
+//
+//        livesRect.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.105))
+//
+//        livesRect.name = "lives Rectangle"
+//        addChild(livesRect)
 
-        livesRect.name = "lives Rectangle"
-        addChild(livesRect)
-
-        livesLabel = SKLabelNode(fontNamed: "Helvetica Bold")
+        livesLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         livesLabel.numberOfLines = 3
         livesLabel.text = "Lives: \(lives) ❤️"
-        livesLabel.fontColor = UIColor.yellow
+        livesLabel.fontColor = UIColor.green
         livesLabel.fontSize = CGFloat(frame.height * 0.03)
-        livesLabel.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.125))
+        livesLabel.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.123))
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
 
@@ -264,5 +263,4 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
-
 

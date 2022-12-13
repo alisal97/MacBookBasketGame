@@ -2,6 +2,10 @@
 import Foundation
 import SpriteKit
 
+
+
+
+
 class Intro: SKScene {
     
     var playButton: SKSpriteNode!
@@ -12,20 +16,23 @@ class Intro: SKScene {
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         createSceneContent()
+        
+        
 
     }
     
+
     func createSceneContent() {
         
-        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 180))
+//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 180))
+//        
+//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.2))
+//
+//        playRect.name = "Play Rectangle"
+//        addChild(playRect)
         
-        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.2))
-
-        playRect.name = "Play Rectangle"
-        addChild(playRect)
-        
-        let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
-        textNode.fontColor = UIColor.yellow
+        let textNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
+        textNode.fontColor = UIColor.green
         textNode.text = "Tap Santo \nTo collect Apples \nFor Santo!"
         textNode.numberOfLines = 3
         textNode.fontSize = CGFloat(frame.height * 0.05)

@@ -18,18 +18,18 @@ class gameover: SKScene {
     }
     
     func createSceneContent() {
-        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 130))
-        
-        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
+//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 130))
+//
+//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
+//
+//        playRect.name = "Play again Rectangle"
+//        addChild(playRect)
 
-        playRect.name = "Play again Rectangle"
-        addChild(playRect)
-
-        let textNode = SKLabelNode(fontNamed: "Helvetica Bold")
-        textNode.fontColor = UIColor.yellow
+        let textNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
+        textNode.fontColor = UIColor.green
         textNode.text = "GAME OVER!! \nSanto is ANGRY!. \nTap Santo to try AGAIN!."
         textNode.numberOfLines = 3
-        textNode.fontSize = CGFloat(frame.height * 0.0333)
+        textNode.fontSize = CGFloat(frame.height * 0.0379)
         textNode.horizontalAlignmentMode = .center
         textNode.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.1))
         textNode.name = "Welcome Label"
@@ -40,16 +40,17 @@ class gameover: SKScene {
         playButton.name = "Play Button"
         addChild(playButton)
         
-        
-        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 300 , height: 55))
-        
-        leadRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 5.5) + (size.height * 0.17))
-        leadRect.name = "Leaderboard Rectangle"
-        addChild(leadRect)
-        
-        leaderboardButton = SKLabelNode(fontNamed: "Helvetica Bold")
-        leaderboardButton.text = "Open Leaderboard"
-        leaderboardButton.fontColor = UIColor.yellow
+//
+//        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 300 , height: 55))
+//
+//        leadRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 5.5) + (size.height * 0.17))
+//        leadRect.name = "Leaderboard Rectangle"
+//        addChild(leadRect)
+//
+        leaderboardButton = SKLabelNode(fontNamed: "Barcade Bold")
+        leaderboardButton.text = "Leaderboard"
+        leaderboardButton.fontSize = CGFloat(frame.height * 0.05)
+        leaderboardButton.fontColor = UIColor.green
         leaderboardButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 3))
         leaderboardButton.name = "Leaderboard Button"
         addChild(leaderboardButton)

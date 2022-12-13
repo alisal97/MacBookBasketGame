@@ -21,15 +21,16 @@ class Leaderboard: SKScene {
     
     func createSceneContent() {
         
-        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 500 , height: 300))
+//        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 500 , height: 300))
+//        
+//        leadRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
+//        leadRect.name = "Leaderboard Rectangle"
+//        addChild(leadRect)
         
-        leadRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
-        leadRect.name = "Leaderboard Rectangle"
-        addChild(leadRect)
-        
-        exitButton = SKLabelNode(fontNamed: "Helvetica Bold")
+        exitButton = SKLabelNode(fontNamed: "Barcade Bold")
         exitButton.text = "Exit"
-        exitButton.fontColor = UIColor.yellow
+        exitButton.fontColor = UIColor.green
+        exitButton.fontSize = CGFloat(frame.height * 0.05)
         exitButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 5))
         addChild(exitButton)
 
