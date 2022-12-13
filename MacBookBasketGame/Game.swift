@@ -9,6 +9,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var points: Int = 0
     var lives: Int = 3
     var basket: SKSpriteNode!
+    var animation: SKTexture!
     var ground: SKSpriteNode!
     var pointsLabel: SKLabelNode!
     var livesLabel: SKLabelNode!
@@ -16,6 +17,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
+    var totalApples: Int = 0
 
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
@@ -54,12 +56,21 @@ class Game: SKScene, SKPhysicsContactDelegate {
         let xConstraint = SKConstraint.positionX(SKRange(lowerLimit: basket.size.width / 2, upperLimit: frame.width - (basket.size.width / 2)))
         basket.constraints = [xConstraint]
         
+        animation = SKTexture(imageNamed: "Animation.png")
+//        animation = SKSpriteNode(texture: animationTexture)
+//        animationBody.isDynamic = false
+//        animationBody.affectedByGravity = false
+//        animationBody.usesPreciseCollisionDetection = true
+//        animation.physicsBody = animationBody
+//        animation.name = "Animation"
+//        animation.constraints = [xConstraint]
+        
+//
         let apple1 = SKTexture(imageNamed: "apple1.png")
         let apple2 = SKTexture(imageNamed: "apple2.png")
         let apple3 = SKTexture(imageNamed: "apple3.png")
         
         fruitTextures = [apple1, apple2, apple3]
-        
 //        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 123 , height: 35))
 //        
 //        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.105))
@@ -71,9 +82,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
         pointsLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         pointsLabel.numberOfLines = 3
-        pointsLabel.text = "Score: \(points)"
+        pointsLabel.text = "Collected: \(points)"
         pointsLabel.fontColor = UIColor.green
-        pointsLabel.fontSize = CGFloat(frame.height * 0.03)
+        pointsLabel.fontSize = CGFloat(frame.height * 0.023)
         pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.123))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
@@ -146,7 +157,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
 
 
-    var missedPoints: [Int] = []
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node else { return }
         guard let nameA = nodeA.name, let nameB = nodeB.name else { return }
@@ -154,26 +164,50 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 if (nameA == "Basket" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Score: \(points + 2)")
+                    pointsLabel.text = String("Collected: \(points + 2)")
                     points += 2
+                    let aniAction = SKAction.setTexture(animation)
+                    let aniTime = SKAction.wait(forDuration: 0.19)
+                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
+                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
+                    basket.run(aniSeq)
+
                 }
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Score: \(points + 2)")
+                    pointsLabel.text = String("Collected: \(points + 2)")
                     points += 2
+                    let aniAction = SKAction.setTexture(animation)
+                    let aniTime = SKAction.wait(forDuration: 0.19)
+                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
+                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
+                    basket.run(aniSeq)
+
                 }
                 else if (nameA == "Basket" && nameB == "Fruit") {
                     nodeB.run(SKAction.removeFromParent())
-                    pointsLabel.text = String("Score: \(points + 1)")
+                    pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    let aniAction = SKAction.setTexture(animation)
+                    let aniTime = SKAction.wait(forDuration: 0.19)
+                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
+                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
+                    basket.run(aniSeq)
+
                 }
                 else if (nameB == "Basket" && nameA == "Fruit") {
                     nodeA.run(SKAction.removeFromParent())
-                    pointsLabel.text = String("Score: \(points + 1)")
+                    pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    let aniAction = SKAction.setTexture(animation)
+                    let aniTime = SKAction.wait(forDuration: 0.19)
+                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
+                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
+                    basket.run(aniSeq)
+
                 }
                 else if (nameA == "Ground" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
@@ -204,16 +238,19 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
     func liveCounter() {
         if (lives == 0) {
+            totalApples += points
             if let view = view {
                 let gameOver = gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
                 view.presentScene(gameOver, transition: transition)
-                let leaderboardScore = leaderboardInfo(gameScore: self.points)
+//                let leaderboardScore = leaderboardInfo(gameApples Collected self.points)
 
             }
         }
     }
+    
 
+    
 //    func winningPoints() {
 //        if (points >= 31) {
 //            if let view = view {
@@ -225,8 +262,8 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.02)
-        let duration = 0.09
+        let increment = CGFloat(frame.width * 0.035)
+        let duration = 0.0
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
@@ -244,8 +281,8 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.013)
-        let duration = 0.09
+        let increment = CGFloat(frame.width * 0.035)
+        let duration = 0.0
         let events = event?.allTouches
         let touchEvent = events?.first
         let touchLocation = touchEvent?.location(in: self)
