@@ -268,43 +268,15 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //        }
 //    }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.035)
-        let duration = 0.0
-        let events = event?.allTouches
-        let touchEvent = events?.first
-        let touchLocation = touchEvent?.location(in: self)
-        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
-        if (location.x > frame.midX) {
-            let action = SKAction.moveBy(x: increment, y: 0, duration: duration)
-            action.timingMode = .easeInEaseOut
-            basket.run(action)
-        }
-        else {
-            let action = SKAction.moveBy(x: -increment, y: 0, duration: duration)
-            action.timingMode = .easeInEaseOut
-            basket.run(action)
-        }
-    }
+
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let increment = CGFloat(frame.width * 0.035)
-        let duration = 0.0
-        let events = event?.allTouches
-        let touchEvent = events?.first
-        let touchLocation = touchEvent?.location(in: self)
-        let location = CGPoint(x: touchLocation!.x, y: touchLocation!.y)
-        if (location.x > frame.midX) {
-            let action = SKAction.moveBy(x: increment, y: 0, duration: duration)
-            action.timingMode = .easeInEaseOut
-            basket.run(action)
+        for touch in touches {
+            let location = touch.location(in: self)
+            basket.position.x = location.x
+        }
         
         }
-        else {
-            let action = SKAction.moveBy(x: -increment, y: 0, duration: duration)
-            action.timingMode = .easeInEaseOut
-            basket.run(action)
-        }
     }
-}
+
 

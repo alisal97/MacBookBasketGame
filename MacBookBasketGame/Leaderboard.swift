@@ -22,7 +22,6 @@ class Leaderboard: SKScene {
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
-        createSceneContent()
         
         do {
             let encoder = JSONEncoder()
@@ -31,22 +30,30 @@ class Leaderboard: SKScene {
         } catch {
             print("unable to encode Leaderboard \(error)")
         }
-        
+        var i: Int = 1
+        for e in leaderboardScores {
+            let element = SKLabelNode()
+            element.position = CGPoint(x: size.width/2, y: size.height * (0.90 - CGFloat(i)*0.05))
+            element.text = "\(String(i)) + \(e.id)  + \(String(e.gameScore))"
+            element.fontSize = 20
+            i+=1
+            addChild(element)
+        }
+        createSceneContent()
+
         if let data = UserDefaults.standard.data(forKey: "LB") {
             do {
                 // Create JSON Decoder
                 let decoder = JSONDecoder()
-
+                
                 // Decode Note
                 let leaderboardScores = try decoder.decode([leaderboardInfo].self, from: data)
             } catch {
                 print("Unable to Decode Notes (\(error))")
             }
         }
-
-
-    }
-    
+        
+            }
     func createSceneContent() {
         
 //        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 500 , height: 300))
@@ -56,9 +63,9 @@ class Leaderboard: SKScene {
 //        addChild(leadRect)
         
 
-        leaderboardView = SKLabelNode(fontNamed: "Barcade Bold")
-//        leaderboardView.text = String(leaderboardScores)
-        leaderboardView.fontColor = UIColor.green
+//        leaderboardView = SKLabelNode(fontNamed: "Barcade Bold")
+////        leaderboardView.text = String(leaderboardScores)
+//        leaderboardView.fontColor = UIColor.green
 
         exitButton = SKLabelNode(fontNamed: "Barcade Bold")
         exitButton.text = "Exit"
