@@ -43,7 +43,7 @@ class gameover: SKScene {
         apples.position = CGPoint(x: (size.width / 2.0), y: (size.height / 8) + (size.height * 0.1))
         apples.name = "Apples"
         addChild(apples)
-
+        
         playButton = SKSpriteNode(imageNamed: "Santo.png")
         playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
         playButton.name = "Play Button"
@@ -74,6 +74,7 @@ class gameover: SKScene {
             let name = atPoint(touchLocation).name
             if name == "Play Button" {
                 if let view = view {
+                    points = 0
                     let game = Game(size: size)
                     let transition = SKTransition.fade(withDuration: 1.0)
                     view.presentScene(game, transition: transition)

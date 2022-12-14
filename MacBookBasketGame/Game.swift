@@ -130,7 +130,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func addFruit(at location: CGPoint) {
         if points <= 10 {
             let random = Int(randomSource.nextUniform() * 9)
-            let spawnTime = Double.random(in: 1.5...1.7)
+            let spawnTime = Double.random(in: 1.5...1.7 )
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
