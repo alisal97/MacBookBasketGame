@@ -128,7 +128,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
 
     func addFruit(at location: CGPoint) {
-        if points <= 30 {
+        if points <= 10 {
             let random = Int(randomSource.nextUniform() * 9)
             let spawnTime = Double.random(in: 2.3...3.5)
             let fruitChoice = random % fruitTextures.count
@@ -144,7 +144,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
-        else if points >= 30 {
+        else if points >= 10 {
             let random = Int(randomSource.nextUniform() * 9.9)
             let spawnTime = Double.random(in: 1.9...2.5)
             let fruitChoice = random % fruitTextures.count
@@ -161,9 +161,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
             addChild(fruit)
         }
 
-       else if points >= 50 {
+       else if points >= 15 {
            let random = Int(randomSource.nextUniform() * 11)
-           let spawnTime = Double.random(in: 1.5...2.3)
+           let spawnTime = Double.random(in: 1.5...2.3  )
            let fruitChoice = random % fruitTextures.count
            let fruitTexture = fruitTextures[fruitChoice]
            let fruit = SKSpriteNode(texture: fruitTexture)
@@ -176,7 +176,22 @@ class Game: SKScene, SKPhysicsContactDelegate {
            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
            fruit.name = "Fruit"
            addChild(fruit)
-
+        }
+        else if points >= 20 {
+            let random = Int(randomSource.nextUniform() * 13)
+            let spawnTime = Double.random(in: 1.1...1.5)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
         }
     }
     func addSpecial(at location: CGPoint) {
