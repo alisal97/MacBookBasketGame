@@ -130,7 +130,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func addFruit(at location: CGPoint) {
         if points <= 10 {
             let random = Int(randomSource.nextUniform() * 9)
-            let spawnTime = Double.random(in: 1.5...1.9)
+            let spawnTime = Double.random(in: 1.5...1.7)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -146,7 +146,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 10 {
             let random = Int(randomSource.nextUniform() * 9.9)
-            let spawnTime = Double.random(in: 1.3...1.5)
+            let spawnTime = Double.random(in: 1.1...1.3)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -163,7 +163,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
        else if points >= 15 {
            let random = Int(randomSource.nextUniform() * 11)
-           let spawnTime = Double.random(in: 0.9...1.3)
+           let spawnTime = Double.random(in: 0.7...0.9)
            let fruitChoice = random % fruitTextures.count
            let fruitTexture = fruitTextures[fruitChoice]
            let fruit = SKSpriteNode(texture: fruitTexture)
@@ -179,7 +179,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 20 {
             let random = Int(randomSource.nextUniform() * 13)
-            let spawnTime = Double.random(in: 0.5...0.9)
+            let spawnTime = Double.random(in: 0.3...0.5)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -195,7 +195,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 25 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.1...0.3)
+            let spawnTime = Double.random(in: 0.05...0.1)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
