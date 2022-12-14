@@ -209,6 +209,22 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
+        else if points >= 35 {
+            let random = Int(randomSource.nextUniform() * 15)
+            let spawnTime = Double.random(in: 0.01...0.03)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
+        }
 
     }
     func addSpecial(at location: CGPoint) {
