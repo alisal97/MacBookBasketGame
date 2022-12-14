@@ -114,13 +114,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
    
     override func update(_ currentTime: TimeInterval) {
         let choice = randomSource.nextUniform()
-        if (choice < 0.0115) {
+        if (choice < 0.019) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             addFruit(at: CGPoint(x: x, y: y))
             
         }
-        else if ( choice <= 0.0129) && (choice >= 0.0115) {
+        else if ( choice <= 0.025) && (choice >= 0.019) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
