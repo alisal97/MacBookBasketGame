@@ -22,6 +22,7 @@
 		106E161E2944ACB10026A7F5 /* SeminarRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16192944ACB10026A7F5 /* SeminarRoom.png */; };
 		107D534E2944BC86007D0553 /* gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107D534D2944BC86007D0553 /* gameplay.mp3 */; };
 		1080D546294567910002B7A4 /* apple1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1080D545294567910002B7A4 /* apple1.png */; };
+		108176C2294A1A550036D067 /* GameComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108176C1294A1A550036D067 /* GameComplete.swift */; };
 		108F41C62948007700B4C539 /* Barcade3D-YZBj.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */; };
 		108F41C82948014200B4C539 /* BarcadeBold-B8nV.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C72948014200B4C539 /* BarcadeBold-B8nV.otf */; };
 		108F41CA2948022200B4C539 /* BarcadeNoBarBold-gzXq.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */; };
@@ -50,6 +51,7 @@
 		106E16192944ACB10026A7F5 /* SeminarRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeminarRoom.png; sourceTree = "<group>"; };
 		107D534D2944BC86007D0553 /* gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplay.mp3; sourceTree = "<group>"; };
 		1080D545294567910002B7A4 /* apple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple1.png; sourceTree = "<group>"; };
+		108176C1294A1A550036D067 /* GameComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComplete.swift; sourceTree = "<group>"; };
 		108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barcade3D-YZBj.otf"; sourceTree = "<group>"; };
 		108F41C72948014200B4C539 /* BarcadeBold-B8nV.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarcadeBold-B8nV.otf"; sourceTree = "<group>"; };
 		108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarcadeNoBarBold-gzXq.otf"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				10938B912947DD180030804E /* Info.plist */,
 				106E16022944AC7A0026A7F5 /* AppDelegate.swift */,
+				108176C1294A1A550036D067 /* GameComplete.swift */,
 				106E15F52944AC030026A7F5 /* Main.storyboard */,
 				106E15F82944AC040026A7F5 /* Assets.xcassets */,
 				106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 				10FA0E842947724700334B7E /* Leaderboard.swift in Sources */,
 				106E16152944ACAA0026A7F5 /* Gameover.swift in Sources */,
 				10FA0E822947633D00334B7E /* Intro.swift in Sources */,
+				108176C2294A1A550036D067 /* GameComplete.swift in Sources */,
 				106E16112944AC980026A7F5 /* Game.swift in Sources */,
 				106E16032944AC7A0026A7F5 /* AppDelegate.swift in Sources */,
 			);

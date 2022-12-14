@@ -1,12 +1,14 @@
+//
+//  GameComplete.swift
+//  MacBookBasketGame
+// easter egg for game completion
+//  Created by Aly Salman on 14/12/22.
+//
 
 import Foundation
 import SpriteKit
 
-
-
-
-
-class Intro: SKScene {
+class GameComplete: SKScene {
     
     var playButton: SKSpriteNode!
     var leaderboardButton: SKLabelNode!
@@ -17,42 +19,27 @@ class Intro: SKScene {
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         createSceneContent()
-        
+
     }
     
-
     func createSceneContent() {
-        
-//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 180))
-//        
-//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.2))
+//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 130))
 //
-//        playRect.name = "Play Rectangle"
+//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
+//
+//        playRect.name = "Play again Rectangle"
 //        addChild(playRect)
-        
+
         let textNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         textNode.fontColor = UIColor.green
-        textNode.text = "Tap Santo \nTo collect Apples \nFor Santo!"
+        textNode.text = "You have \(String(totalApples)) SAP COINS!! \nSanto is HAPPY \nHe now can eat and grow hair!. \nTap Santo to play more!."
         textNode.numberOfLines = 3
-        textNode.fontSize = CGFloat(frame.height * 0.05)
+        textNode.fontSize = CGFloat(frame.height * 0.029)
         textNode.horizontalAlignmentMode = .center
         textNode.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.1))
         textNode.name = "Welcome Label"
         addChild(textNode)
         
-        playButton = SKSpriteNode(imageNamed: "santoFace.png")
-        playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
-        playButton.name = "PlayIntro"
-        addChild(playButton)
-        
-        leaderboardButton = SKLabelNode(fontNamed: "Barcade Bold")
-        leaderboardButton.text = "Leaderboard"
-        leaderboardButton.fontSize = CGFloat(frame.height * 0.05)
-        leaderboardButton.fontColor = UIColor.green
-        leaderboardButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 3))
-        leaderboardButton.name = "Leaderboard Button"
-        addChild(leaderboardButton)
-
         let apples = SKLabelNode(fontNamed: "Barcade Bold")
         apples.text = "SAP Coins: \(totalApples)"
         apples.fontColor = UIColor.green
@@ -61,13 +48,36 @@ class Intro: SKScene {
         apples.position = CGPoint(x: (size.width / 2.0), y: (size.height / 8) + (size.height * 0.1))
         apples.name = "Apples"
         addChild(apples)
+        
+        playButton = SKSpriteNode(imageNamed: "santoFace.png")
+        playButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))
+        playButton.name = "Play Santo"
+        addChild(playButton)
+        
+//
+//        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 300 , height: 55))
+//
+//        leadRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 5.5) + (size.height * 0.17))
+//        leadRect.name = "Leaderboard Rectangle"
+//        addChild(leadRect)
+//
+        leaderboardButton = SKLabelNode(fontNamed: "Barcade Bold")
+        leaderboardButton.text = "Leaderboard"
+        leaderboardButton.fontSize = CGFloat(frame.height * 0.05)
+        leaderboardButton.fontColor = UIColor.green
+        leaderboardButton.position = CGPoint(x: size.width / 2.0, y: (size.height / 3))
+        leaderboardButton.name = "Leaderboard Button"
+        addChild(leaderboardButton)
+
+        
     }
 
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let touchLocation = touch.location(in: self)
             let name = atPoint(touchLocation).name
-            if name == "PlayIntro" {
+            if name == "Play Santo" {
                 if let view = view {
                     points = 0
                     let game = Game(size: size)
@@ -87,5 +97,7 @@ class Intro: SKScene {
         }
       
             }
-}
+        }
+        
+
 

@@ -8,14 +8,14 @@ struct leaderboardInfo: Codable {
     var gameScore: Int
 }
 
-let leaderboardScore = leaderboardInfo(gameScore: points)
-let leaderboardScores = [leaderboardScore]
+
 
 
 class Leaderboard: SKScene {
     var exitButton: SKLabelNode!
     var leaderboardView: SKLabelNode!
-    
+    let leaderboardScore = leaderboardInfo(gameScore: points)
+    let leaderboardScores = decodeLeaderboard()
         
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "SeminarRoom.png")
@@ -23,35 +23,23 @@ class Leaderboard: SKScene {
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(leaderboardScore)
-            UserDefaults.standard.set(data, forKey: "LB")
-        } catch {
-            print("unable to encode Leaderboard \(error)")
-        }
+        
+        
+        
+        
         var i: Int = 1
         for e in leaderboardScores {
             let element = SKLabelNode()
             element.position = CGPoint(x: size.width/2, y: size.height * (0.90 - CGFloat(i)*0.05))
-            element.text = "\(String(i)) + \(e.id)  + \(String(e.gameScore))"
-            element.fontSize = 20
+            element.text = "\(String(i))                        \(String(e.gameScore))"
+            element.fontSize = 37
+            element.fontName = "Barcade Bold"
+            element.fontColor = UIColor.green
             i+=1
             addChild(element)
         }
         createSceneContent()
 
-        if let data = UserDefaults.standard.data(forKey: "LB") {
-            do {
-                // Create JSON Decoder
-                let decoder = JSONDecoder()
-                
-                // Decode Note
-                let leaderboardScores = try decoder.decode([leaderboardInfo].self, from: data)
-            } catch {
-                print("Unable to Decode Notes (\(error))")
-            }
-        }
         
             }
     func createSceneContent() {
@@ -88,5 +76,31 @@ class Leaderboard: SKScene {
             }
             
         }
+    }
+}
+
+func decodeLeaderboard() -> [leaderboardInfo]{
+    if let data = UserDefaults.standard.data(forKey: "LB") {
+        do {
+            // Create JSON Decoder
+            let decoder = JSONDecoder()
+            
+            // Decode Note
+            let leaderboardScores = try decoder.decode([leaderboardInfo].self, from: data)
+            return leaderboardScores
+        } catch {
+            print("Unable to Decode Notes (\(error))")
+        }
+    }
+    return []
+}
+
+func encodeLeaderboard(scores : [leaderboardInfo]){
+    do {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(scores)
+        UserDefaults.standard.set(data, forKey: "LB")
+    } catch {
+        print("unable to encode Leaderboard \(error)")
     }
 }

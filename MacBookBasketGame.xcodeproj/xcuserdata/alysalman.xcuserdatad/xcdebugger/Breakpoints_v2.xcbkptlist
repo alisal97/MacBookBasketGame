@@ -7,25 +7,124 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "144ACCE4-780A-49F3-8E5C-E611DE9785A5"
-            shouldBeEnabled = "No"
+            uuid = "69138F30-CD28-4F27-9D65-8B2425222F00"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "MacBookBasketGame/Leaderboard.swift"
+            continueAfterRunningActions = "No"
+            filePath = "MacBookBasketGame/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "didMove(to:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po print(leaderboardScores)">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "Game"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - 1d2b0bed57845ebd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.__allocating_init(size: __C.CGSize) -&gt; MacBookBasketGame.Game"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - 3af995b0c071e116"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.init(size: __C.CGSize) -&gt; MacBookBasketGame.Game"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - 6c6cb7eca04fd1e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.__allocating_init() -&gt; MacBookBasketGame.Game"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - 5bb1f5ca8ad3e7ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.init() -&gt; MacBookBasketGame.Game"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - f25a13f2dba86833"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MacBookBasketGame.Game&gt;"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - d4374ffc2f51a72e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MacBookBasketGame.Game&gt;"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "69138F30-CD28-4F27-9D65-8B2425222F00 - fd1572484bdbd348"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacBookBasketGame.Game.__deallocating_deinit"
+                  moduleName = "MacBookBasketGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alysalman/Apps/MacBookBasketGame/MacBookBasketGame/Game.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

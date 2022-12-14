@@ -251,9 +251,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 if (nameA == "Basket" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 2)")
-                    points += 2
-                    totalApples += 2
+                    pointsLabel.text = String("Collected: \(points + 3)")
+                    points += 3
+                    totalApples += 3
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
                     let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
@@ -264,9 +264,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 2)")
-                    points += 2
-                    totalApples += 2
+                    pointsLabel.text = String("Collected: \(points + 3)")
+                    points += 3
+                    totalApples += 3
                     let aniAction = SKAction.setTexture(animation)
                     let aniTime = SKAction.wait(forDuration: 0.19)
                     let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
@@ -328,14 +328,28 @@ class Game: SKScene, SKPhysicsContactDelegate {
             }
 
     func liveCounter() {
-        if (lives == 0) {
+        if (lives == 0) && (totalApples < 1000) {
+            var leaderboard : [leaderboardInfo] = decodeLeaderboard()
+            leaderboard.append(leaderboardInfo(gameScore: points))
+            leaderboard.sort { $0.gameScore > $1.gameScore}
+            encodeLeaderboard(scores: leaderboard)
             if let view = view {
                 let gameover = Gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
                 view.presentScene(gameover, transition: transition)
-            
-
             }
+            
+        } else if (lives == 0) && (totalApples >= 1000) {
+            var leaderboard : [leaderboardInfo] = decodeLeaderboard()
+            leaderboard.append(leaderboardInfo(gameScore: points))
+            leaderboard.sort { $0.gameScore > $1.gameScore}
+            encodeLeaderboard(scores: leaderboard)
+            if let view = view {
+                let gameComp = GameComplete(size: size)
+                let transition = SKTransition.fade(withDuration: 3.0)
+                view.presentScene(gameComp, transition: transition)
+            }
+            
         }
     }
     
