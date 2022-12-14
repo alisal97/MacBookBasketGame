@@ -3,7 +3,7 @@
 import Foundation
 import SpriteKit
 
-class gameover: SKScene {
+class Gameover: SKScene {
     
     var playButton: SKSpriteNode!
     var leaderboardButton: SKLabelNode!

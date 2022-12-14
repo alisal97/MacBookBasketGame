@@ -330,9 +330,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func liveCounter() {
         if (lives == 0) {
             if let view = view {
-                let gameOver = gameover(size: size)
+                let gameover = Gameover(size: size)
                 let transition = SKTransition.fade(withDuration: 3.0)
-                view.presentScene(gameOver, transition: transition)
+                view.presentScene(gameover, transition: transition)
             
 
             }
