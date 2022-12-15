@@ -70,6 +70,7 @@ class Intro: SKScene {
             if name == "PlayIntro" {
                 if let view = view {
                     points = 0
+                    lives = 3
                     let game = Game(size: size)
                     let transition = SKTransition.fade(withDuration: 1.0)
                     view.presentScene(game, transition: transition)

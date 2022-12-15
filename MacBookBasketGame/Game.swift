@@ -5,12 +5,11 @@ import GameplayKit
 
 var totalApples: Int = 0
 var points: Int = 0
-
+var lives: Int = 3
 
 
 class Game: SKScene, SKPhysicsContactDelegate {
     
-    var lives: Int = 3
     var basket: SKSpriteNode!
     var animation: SKTexture!
     var ground: SKSpriteNode!
@@ -21,7 +20,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     var arrows: SKSpriteNode!
-    var pauseButton: SKLabelNode!
+    var pauseRect: SKSpriteNode!
     var notClicked: Bool = false
 
     override func didMove(to view: SKView) {
@@ -97,18 +96,24 @@ class Game: SKScene, SKPhysicsContactDelegate {
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
         
-        pauseButton = SKLabelNode(fontNamed: "Barcade Bold")
-        pauseButton.text = "Pause"
-        pauseButton.fontColor = UIColor.green
-        pauseButton.fontSize = CGFloat(frame.height * 0.04)
+        
+        let pauseButton = SKSpriteNode(imageNamed: "pause.png")
+        pauseButton.size = CGSize(width: frame.width * 0.1, height: frame.width * 0.15)
         pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - (size.height * 0.123))
-        pauseButton.name = "Pause"
+        pauseButton.name = "Pause Button"
         addChild(pauseButton)
+        
+        pauseRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0), size: CGSize(width: frame.width * 0.26, height: frame.height * 0.15))
+        pauseRect.position = CGPoint(x: frame.midX, y: frame.maxY - (size.height * 0.123))
+        pauseRect.name = "PauseRect"
+        pauseRect.zPosition = 1
+        addChild(pauseRect)
+
     }
 
     override func update(_ currentTime: TimeInterval) {
 
-        guard !Game().isPaused else { return }
+//        guard !Game().isPaused else { return }
 
         let choice = randomSource.nextUniform()
         if (choice < 0.0235) {
@@ -387,24 +392,20 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //        }
 //    }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.scene?.view?.isPaused = true
-//
-//    }
-//
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let touchLocation = touch.location(in: self)
-            let name = atPoint(touchLocation).name
-            let scene = Game()
-            if name == "Pause" {
-                scene.isPaused = true
+            if atPoint(touch.location(in: self)).name == "PauseRect" {
+                isPaused = true
                 if let view = view {
                     let pauseScreen = PauseScreen(size: size)
                     let transition = SKTransition.fade(withDuration: 0)
                     view.presentScene(pauseScreen, transition: transition)
-                    }
+                }
             }
+        }
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
             if !notClicked {
                 notClicked = true
             } else {
