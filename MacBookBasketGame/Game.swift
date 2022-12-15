@@ -8,10 +8,8 @@ var points: Int = 0
 
 
 
-
 class Game: SKScene, SKPhysicsContactDelegate {
     
-//    var points: Int = 0
     var lives: Int = 3
     var basket: SKSpriteNode!
     var animation: SKTexture!
@@ -22,11 +20,12 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSource = GKLinearCongruentialRandomSource.sharedRandom()
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
-
+    var arrows: SKSpriteNode!
+   
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
         seminarRoom.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-    
+
         addChild(seminarRoom)
         physicsWorld.contactDelegate = self
         let backgroundMusic = SKAudioNode(fileNamed: "gameplay.mp3")
@@ -35,6 +34,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         backgroundMusic.run(SKAction.changeVolume(to: 0.15, duration: 0))
         self.addChild(backgroundMusic)
         createSceneContent()
+
     }
     
     func createSceneContent() {
@@ -61,27 +61,22 @@ class Game: SKScene, SKPhysicsContactDelegate {
         basket.constraints = [xConstraint]
         
         animation = SKTexture(imageNamed: "Animation.png")
-//        animation = SKSpriteNode(texture: animationTexture)
-//        animationBody.isDynamic = false
-//        animationBody.affectedByGravity = false
-//        animationBody.usesPreciseCollisionDetection = true
-//        animation.physicsBody = animationBody
-//        animation.name = "Animation"
-//        animation.constraints = [xConstraint]
         
-//
+        let arrowTextures = SKTexture(imageNamed: "arrows.png")
+        arrows = SKSpriteNode(texture: arrowTextures)
+        arrows.position = basket.position
+        arrows.physicsBody?.isDynamic = true
+        arrows.name = "Arrows"
+        addChild(arrows)
+        
+        
+        
+        
         let apple1 = SKTexture(imageNamed: "apple1.png")
         let apple2 = SKTexture(imageNamed: "apple2.png")
         let apple3 = SKTexture(imageNamed: "apple3.png")
         
         fruitTextures = [apple1, apple2, apple3]
-//        let scoreRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 123 , height: 35))
-//        
-//        scoreRect.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.105))
-//
-//        scoreRect.name = "Score Rectangle"
-//        addChild(scoreRect)
-//        
 
 
         pointsLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
@@ -94,12 +89,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         addChild(pointsLabel)
         
         
-//        let livesRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 135 , height: 35))
-//
-//        livesRect.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.105))
-//
-//        livesRect.name = "lives Rectangle"
-//        addChild(livesRect)
+
 
         livesLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         livesLabel.numberOfLines = 3
@@ -109,18 +99,18 @@ class Game: SKScene, SKPhysicsContactDelegate {
         livesLabel.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.123))
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
-
     }
-   
+    
     override func update(_ currentTime: TimeInterval) {
+//        self.view?.isPaused = false
         let choice = randomSource.nextUniform()
-        if (choice < 0.019) {
+        if (choice <= 0.017) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             addFruit(at: CGPoint(x: x, y: y))
             
         }
-        else if ( choice <= 0.025) && (choice >= 0.019) {
+        else if ( choice <= 0.023) && (choice >= 0.019) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
@@ -225,6 +215,23 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
+        else if points >= 50 {
+            let random = Int(randomSource.nextUniform() * 15)
+            let spawnTime = Double.random(in: 0.005...0.007)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
+        }
+
 
     }
     func addSpecial(at location: CGPoint) {
@@ -352,7 +359,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             
         }
     }
-    
+
 
     
 //    func winningPoints() {
@@ -365,15 +372,19 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //        }
 //    }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    }
 
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
+            self.scene?.view?.isPaused = false
+            arrows.run(SKAction.removeFromParent())
             let location = touch.location(in: self)
             basket.position.x = location.x
         }
         
         }
+
     }
 
 
