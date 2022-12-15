@@ -21,7 +21,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     var arrows: SKSpriteNode!
-
+    var notClicked: Bool = false
 
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
@@ -96,25 +96,26 @@ class Game: SKScene, SKPhysicsContactDelegate {
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
     }
-//    override func didApplyConstraints() -> Void {
-//        Game().scene?.view?.isPaused = true
-//    }
 
     override func update(_ currentTime: TimeInterval) {
-        
-        guard !Game().isPaused else { return }
+
+//        guard !Game().isPaused else { return }
 
         let choice = randomSource.nextUniform()
         if (choice <= 0.0175) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
-            addFruit(at: CGPoint(x: x, y: y))
+            if notClicked {
+                addFruit(at:CGPoint(x: x, y: y))
+            }
             
         }
         else if ( choice <= 0.0213) && (choice >= 0.0195) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
-            addSpecial(at:CGPoint(x: xSpec, y: ySpec))
+            if notClicked {
+                addSpecial(at:CGPoint(x: xSpec, y: ySpec))
+            }
         }
     }
 
@@ -384,10 +385,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            self.scene?.view?.isPaused = false
-            arrows.run(SKAction.removeFromParent())
-            let location = touch.location(in: self)
-            basket.position.x = location.x
+            if !notClicked {
+                notClicked = true
+            } else {
+                arrows.run(SKAction.removeFromParent())
+                let location = touch.location(in: self)
+                basket.position.x = location.x
+            }
         }
         
         }
