@@ -21,11 +21,12 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     var arrows: SKSpriteNode!
-   
+
+
     override func didMove(to view: SKView) {
         seminarRoom = SKSpriteNode(imageNamed: "SeminarRoom.png")
         seminarRoom.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-
+        
         addChild(seminarRoom)
         physicsWorld.contactDelegate = self
         let backgroundMusic = SKAudioNode(fileNamed: "gameplay.mp3")
@@ -69,15 +70,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
         arrows.name = "Arrows"
         addChild(arrows)
         
-        
-        
+
         
         let apple1 = SKTexture(imageNamed: "apple1.png")
         let apple2 = SKTexture(imageNamed: "apple2.png")
         let apple3 = SKTexture(imageNamed: "apple3.png")
         
         fruitTextures = [apple1, apple2, apple3]
-
 
         pointsLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         pointsLabel.numberOfLines = 3
@@ -88,9 +87,6 @@ class Game: SKScene, SKPhysicsContactDelegate {
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
         
-        
-
-
         livesLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         livesLabel.numberOfLines = 3
         livesLabel.text = "Lives: \(lives) ❤️"
@@ -100,22 +96,28 @@ class Game: SKScene, SKPhysicsContactDelegate {
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
     }
-    
+//    override func didApplyConstraints() -> Void {
+//        Game().scene?.view?.isPaused = true
+//    }
+
     override func update(_ currentTime: TimeInterval) {
-//        self.view?.isPaused = false
+        
+        guard !Game().isPaused else { return }
+
         let choice = randomSource.nextUniform()
-        if (choice <= 0.017) {
+        if (choice <= 0.0175) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             addFruit(at: CGPoint(x: x, y: y))
             
         }
-        else if ( choice <= 0.023) && (choice >= 0.019) {
+        else if ( choice <= 0.0213) && (choice >= 0.0195) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             addSpecial(at:CGPoint(x: xSpec, y: ySpec))
         }
     }
+
 
     func addFruit(at location: CGPoint) {
         if points <= 10 {
@@ -217,7 +219,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 50 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.005...0.007)
+            let spawnTime = Double.random(in: 0.005...0.0095)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -231,9 +233,11 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
+        
 
 
     }
+
     func addSpecial(at location: CGPoint) {
         let specApple = SKTexture(imageNamed: "rainbowApple.png")
         let SpecialApple = SKSpriteNode(texture: specApple)
@@ -247,6 +251,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
         SpecialApple.name = "Rainbow"
         addChild(SpecialApple)
+
         
     }
 
@@ -373,8 +378,10 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //    }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.scene?.view?.isPaused = true
+//
 //    }
-
+//
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             self.scene?.view?.isPaused = false

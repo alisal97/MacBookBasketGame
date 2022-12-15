@@ -18,12 +18,6 @@ class Gameover: SKScene {
     }
     
     func createSceneContent() {
-//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 130))
-//
-//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.17))
-//
-//        playRect.name = "Play again Rectangle"
-//        addChild(playRect)
 
         let textNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         textNode.fontColor = UIColor.green
