@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103A2FC7294B647300FD4E69 /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2FC6294B647300FD4E69 /* PauseScreen.swift */; };
 		106E15F72944AC030026A7F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15F52944AC030026A7F5 /* Main.storyboard */; };
 		106E15F92944AC040026A7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106E15F82944AC040026A7F5 /* Assets.xcassets */; };
 		106E15FC2944AC040026A7F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		103A2FC6294B647300FD4E69 /* PauseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScreen.swift; sourceTree = "<group>"; };
 		106E15E82944AC030026A7F5 /* MacBookBasketGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBookBasketGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106E15F62944AC030026A7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		106E15F82944AC040026A7F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				10E911412948DBC500E5F04A /* Animation.png */,
 				10AD30222945570800CFDD9E /* Player.png */,
 				106E160F2944AC980026A7F5 /* Game.swift */,
+				103A2FC6294B647300FD4E69 /* PauseScreen.swift */,
 				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
 				107D534D2944BC86007D0553 /* gameplay.mp3 */,
 				108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */,
@@ -217,6 +220,7 @@
 			files = (
 				106E161D2944ACB10026A7F5 /* ViewController.swift in Sources */,
 				10FA0E842947724700334B7E /* Leaderboard.swift in Sources */,
+				103A2FC7294B647300FD4E69 /* PauseScreen.swift in Sources */,
 				106E16152944ACAA0026A7F5 /* Gameover.swift in Sources */,
 				10FA0E822947633D00334B7E /* Intro.swift in Sources */,
 				108176C2294A1A550036D067 /* GameComplete.swift in Sources */,

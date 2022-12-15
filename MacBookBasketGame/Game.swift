@@ -21,6 +21,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     var randomSourceSpec = GKLinearCongruentialRandomSource.sharedRandom()
     var fruitTextures: [SKTexture] = []
     var arrows: SKSpriteNode!
+    var pauseButton: SKLabelNode!
     var notClicked: Bool = false
 
     override func didMove(to view: SKView) {
@@ -95,6 +96,14 @@ class Game: SKScene, SKPhysicsContactDelegate {
         livesLabel.position = CGPoint(x: size.width * 0.2, y: frame.maxY - (size.height * 0.123))
         livesLabel.name = "Lives Label"
         addChild(livesLabel)
+        
+        pauseButton = SKLabelNode(fontNamed: "Barcade Bold")
+        pauseButton.text = "Pause"
+        pauseButton.fontColor = UIColor.green
+        pauseButton.fontSize = CGFloat(frame.height * 0.04)
+        pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - (size.height * 0.123))
+        pauseButton.name = "Pause"
+        addChild(pauseButton)
     }
 
     override func update(_ currentTime: TimeInterval) {
@@ -102,7 +111,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //        guard !Game().isPaused else { return }
 
         let choice = randomSource.nextUniform()
-        if (choice <= 0.0175) {
+        if (choice < 0.025) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             if notClicked {
@@ -110,7 +119,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        else if ( choice <= 0.0213) && (choice >= 0.0195) {
+        else if ( choice <= 0.027) && (choice >= 0.0255) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             if notClicked {
