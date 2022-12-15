@@ -54,14 +54,15 @@ class PauseScreen: SKScene {
             let name = atPoint(touchLocation).name
             if name == "Unpause Button" {
                 if let view = view {
-                    points = 0
                     let game = Game(size: size)
+                    game.isPaused = false
                     let transition = SKTransition.fade(withDuration: 0)
                     view.presentScene(game, transition: transition)
                     }
             }
                 else if name == "Exit Button" {
                         if let view = view {
+                            points = 0
                             let exit = Intro(size: size)
                             let transition = SKTransition.fade(withDuration: 1.0)
                             view.presentScene(exit, transition: transition)

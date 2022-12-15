@@ -108,10 +108,10 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
     override func update(_ currentTime: TimeInterval) {
 
-//        guard !Game().isPaused else { return }
+        guard !Game().isPaused else { return }
 
         let choice = randomSource.nextUniform()
-        if (choice < 0.025) {
+        if (choice < 0.0235) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             if notClicked {
@@ -119,7 +119,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        else if ( choice <= 0.027) && (choice >= 0.0255) {
+        else if ( choice <= 0.027) && (choice >= 0.025) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             if notClicked {
@@ -394,6 +394,17 @@ class Game: SKScene, SKPhysicsContactDelegate {
 //
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
+            let touchLocation = touch.location(in: self)
+            let name = atPoint(touchLocation).name
+            let scene = Game()
+            if name == "Pause" {
+                scene.isPaused = true
+                if let view = view {
+                    let pauseScreen = PauseScreen(size: size)
+                    let transition = SKTransition.fade(withDuration: 0)
+                    view.presentScene(pauseScreen, transition: transition)
+                    }
+            }
             if !notClicked {
                 notClicked = true
             } else {
