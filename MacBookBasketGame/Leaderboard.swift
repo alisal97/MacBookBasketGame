@@ -11,6 +11,7 @@ struct leaderboardInfo: Codable {
 
 
 
+
 class Leaderboard: SKScene {
     var exitButton: SKLabelNode!
     var leaderboardView: SKLabelNode!
@@ -26,7 +27,6 @@ class Leaderboard: SKScene {
         
         
         
-        
         var i: Int = 1
         for e in leaderboardScores {
             let element = SKLabelNode()
@@ -36,7 +36,11 @@ class Leaderboard: SKScene {
             element.fontName = "Barcade Bold"
             element.fontColor = UIColor.green
             i+=1
-            addChild(element)
+            if i > 11 {
+                break
+            } else {
+                addChild(element)
+            }
         }
         createSceneContent()
 
@@ -51,9 +55,6 @@ class Leaderboard: SKScene {
 //        addChild(leadRect)
         
 
-//        leaderboardView = SKLabelNode(fontNamed: "Barcade Bold")
-////        leaderboardView.text = String(leaderboardScores)
-//        leaderboardView.fontColor = UIColor.green
 
         exitButton = SKLabelNode(fontNamed: "Barcade Bold")
         exitButton.text = "Exit"
