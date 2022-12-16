@@ -124,7 +124,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        else if ( choice <= 0.027) && (choice >= 0.025) {
+        else if ( choice <= 0.0267) && (choice >= 0.0255) {
             let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
             let ySpec = frame.height
             if notClicked {

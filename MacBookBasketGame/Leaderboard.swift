@@ -25,7 +25,10 @@ class Leaderboard: SKScene {
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         
         
-        
+        let lbRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.73), size: CGSize(width: frame.width * 0.87, height: frame.height * 0.53))
+        lbRect.position = CGPoint(x: frame.midX, y: frame.midY * 1.275)
+        addChild(lbRect)
+
         
         var i: Int = 1
         for e in leaderboardScores {
