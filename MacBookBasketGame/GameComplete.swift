@@ -29,7 +29,7 @@ class GameComplete: SKScene {
         textNode.fontColor = UIColor.green
         textNode.text = "\(String(totalApples)) SAP COINS COLLECTED!! \nSanto is HAPPY \nHe now can eat and grow hair!. \nTap Santo to play more!."
         textNode.numberOfLines = 3
-        textNode.fontSize = CGFloat(frame.height * 0.031)
+        textNode.fontSize = CGFloat(frame.height * 0.0295)
         textNode.horizontalAlignmentMode = .center
         textNode.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.1))
         textNode.name = "Welcome Label"
