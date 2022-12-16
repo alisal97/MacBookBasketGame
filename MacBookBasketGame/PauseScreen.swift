@@ -29,7 +29,7 @@ class PauseScreen: SKScene {
         
         
         unPause = SKLabelNode(fontNamed: "Barcade Bold")
-        unPause.text = "Unpause game"
+        unPause.text = "Continue"
         unPause.fontSize = CGFloat(frame.height * 0.05)
         unPause.fontColor = UIColor.green
         unPause.position = CGPoint(x: size.width / 2.0, y: (size.height / 2))

@@ -39,7 +39,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
     
     func createSceneContent() {
-        ground = SKSpriteNode(color: UIColor(red: (0 / 255.0), green: (0 / 255.0), blue: (0 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: frame.height * 0.21))
+        ground = SKSpriteNode(color: UIColor(red: (128 / 255.0), green: (128 / 255.0), blue: (128 / 255.0), alpha: 1.0), size: CGSize(width: frame.width, height: frame.height * 0.21))
         let groundBody = SKPhysicsBody(rectangleOf: ground.size)
         ground.position = CGPoint(x: frame.width / 2.0, y: 0.19)
         groundBody.isDynamic = false
