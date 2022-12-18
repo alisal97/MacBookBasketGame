@@ -135,7 +135,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             if notClicked {
-                addLife(at:CGPoint(x: x, y: y))
+                giftOfSanto(at:CGPoint(x: x, y: y))
             }
         }
     }
@@ -305,7 +305,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         addChild(SpecialApple)
         
     }
-    func addLife(at location: CGPoint) {
+    func giftOfSanto(at location: CGPoint) {
         if points >= 50 {
             let santoApple = SKTexture(imageNamed: "santo4L.png")
             let santoLife = SKSpriteNode(texture: santoApple)
