@@ -68,6 +68,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         arrows.position = basket.position
         arrows.physicsBody?.isDynamic = true
         arrows.name = "Arrows"
+        arrows.color = UIColor.green
         addChild(arrows)
         
 
@@ -80,9 +81,9 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
         pointsLabel = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         pointsLabel.numberOfLines = 3
-        pointsLabel.text = "Collected: \(points)"
+        pointsLabel.text = "Score: \(points)"
         pointsLabel.fontColor = UIColor.green
-        pointsLabel.fontSize = CGFloat(frame.height * 0.023)
+        pointsLabel.fontSize = CGFloat(frame.height * 0.03)
         pointsLabel.position = CGPoint(x: frame.maxX - (size.width * 0.2), y: frame.maxY - (size.height * 0.123))
         pointsLabel.name = "Points Label"
         addChild(pointsLabel)
@@ -101,6 +102,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         pauseButton.size = CGSize(width: frame.width * 0.1, height: frame.width * 0.15)
         pauseButton.position = CGPoint(x: frame.midX, y: frame.maxY - (size.height * 0.123))
         pauseButton.name = "Pause Button"
+        pauseButton.color = UIColor.green
         addChild(pauseButton)
         
         pauseRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0), size: CGSize(width: frame.width * 0.26, height: frame.height * 0.15))
@@ -317,7 +319,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 if (nameA == "Basket" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 3)")
+                    pointsLabel.text = String("Score: \(points + 3)")
                     points += 3
                     totalApples += 3
                     basketAnim()
@@ -326,7 +328,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 else if (nameB == "Basket" && nameA == "Rainbow") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 3)")
+                    pointsLabel.text = String("Score: \(points + 3)")
                     points += 3
                     totalApples += 3
                     basketAnim()
@@ -335,7 +337,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 else if (nameA == "Basket" && nameB == "Fruit") {
                     nodeB.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 1)")
+                    pointsLabel.text = String("Score: \(points + 1)")
                     points += 1
                     totalApples += 1
                     basketAnim()
@@ -344,7 +346,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 else if (nameB == "Basket" && nameA == "Fruit") {
                     nodeA.run(SKAction.removeFromParent())
                     self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    pointsLabel.text = String("Collected: \(points + 1)")
+                    pointsLabel.text = String("Score: \(points + 1)")
                     points += 1
                     totalApples += 1
                     basketAnim()

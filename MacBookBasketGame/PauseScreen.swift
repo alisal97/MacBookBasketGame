@@ -22,7 +22,7 @@ class PauseScreen: SKScene {
     
     func createSceneContent() {
 
-        let rectangle = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8), size: CGSize(width: frame.width, height: frame.height))
+        let rectangle = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8), size: CGSize(width: frame.maxX, height: frame.maxY))
         rectangle.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         rectangle.name = "Rectangle"
         addChild(rectangle)

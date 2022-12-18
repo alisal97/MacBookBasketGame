@@ -22,14 +22,11 @@ class Intro: SKScene {
     
 
     func createSceneContent() {
-        
-//        let playRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 380 , height: 180))
-//        
-//        playRect.position = CGPoint(x: (size.width / 2.0), y: (size.height / 2) + (size.height * 0.2))
-//
-//        playRect.name = "Play Rectangle"
-//        addChild(playRect)
-        
+        let rectangle = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.85), size: CGSize(width: frame.maxX, height: frame.maxY))
+        rectangle.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        rectangle.name = "Rectangle"
+        addChild(rectangle)
+
         let textNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
         textNode.fontColor = UIColor.green
         textNode.text = "Tap Santo \nTo collect Apples \nFor Santo!"
