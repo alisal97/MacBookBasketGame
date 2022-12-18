@@ -131,7 +131,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                 addSpecial(at:CGPoint(x: x, y: y))
             }
         }
-        else if ( choice <= 0.02415) && (choice >= 0.0235) {
+        else if ( choice <= 0.0239) && (choice >= 0.0215) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
             let y = frame.height
             if notClicked {
@@ -142,7 +142,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     func addFruit(at location: CGPoint) {
         if points <= 10 {
             let random = Int(randomSource.nextUniform() * 9)
-            let spawnTime = Double.random(in: 1.5...1.7 )
+            let spawnTime = Double.random(in: 1.0...1.3 )
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -158,7 +158,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 10 {
             let random = Int(randomSource.nextUniform() * 9.9)
-            let spawnTime = Double.random(in: 1.1...1.3)
+            let spawnTime = Double.random(in: 0.7...0.9)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -175,7 +175,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
         else if points >= 15 {
             let random = Int(randomSource.nextUniform() * 11)
-            let spawnTime = Double.random(in: 0.7...0.9)
+            let spawnTime = Double.random(in: 0.3...0.7)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -191,7 +191,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 20 {
             let random = Int(randomSource.nextUniform() * 13)
-            let spawnTime = Double.random(in: 0.3...0.5)
+            let spawnTime = Double.random(in: 0.09...0.3)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -207,7 +207,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 25 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.05...0.1)
+            let spawnTime = Double.random(in: 0.03...0.07)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -223,7 +223,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 35 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.01...0.03)
+            let spawnTime = Double.random(in: 0.001...0.007)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -239,7 +239,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 50 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.005...0.0095)
+            let spawnTime = Double.random(in: 0.0009...0.0011)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -255,7 +255,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 100 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.001...0.0039)
+            let spawnTime = Double.random(in: 0.0003...0.0007)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -273,7 +273,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         }
         else if points >= 150 {
             let random = Int(randomSource.nextUniform() * 15)
-            let spawnTime = Double.random(in: 0.0003...0.0007)
+            let spawnTime = Double.random(in: 0.0001...0.0003)
             let fruitChoice = random % fruitTextures.count
             let fruitTexture = fruitTextures[fruitChoice]
             let fruit = SKSpriteNode(texture: fruitTexture)
@@ -288,12 +288,12 @@ class Game: SKScene, SKPhysicsContactDelegate {
             addChild(fruit)
             
         }
-        
+
     }
     func addSpecial(at location: CGPoint) {
         let specApple = SKTexture(imageNamed: "rainbowApple.png")
         let SpecialApple = SKSpriteNode(texture: specApple)
-        let spawnTime = Double.random(in: 2.3...3.5)
+        let spawnTime = Double.random(in: 1.7...2.3)
         let specAppleBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
         SpecialApple.position = location
         SpecialApple.physicsBody = specAppleBody
@@ -306,10 +306,10 @@ class Game: SKScene, SKPhysicsContactDelegate {
         
     }
     func giftOfSanto(at location: CGPoint) {
-        if points >= 50 {
+        if points >= 25 {
             let santoApple = SKTexture(imageNamed: "santo4L.png")
             let santoLife = SKSpriteNode(texture: santoApple)
-            let spawnTime = Double.random(in: 2.5...3.7)
+            let spawnTime = Double.random(in: 2.3...2.9)
             let santoAppleBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
             santoLife.position = location
             santoLife.physicsBody = santoAppleBody
