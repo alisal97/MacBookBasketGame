@@ -114,9 +114,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(_ currentTime: TimeInterval) {
-
-//        guard !Game().isPaused else { return }
-
+        
         let choice = randomSource.nextUniform()
         if (choice < 0.0235) {
             let x = CGFloat(randomSource.nextUniform()) * frame.width
@@ -127,15 +125,20 @@ class Game: SKScene, SKPhysicsContactDelegate {
             
         }
         else if ( choice <= 0.0267) && (choice >= 0.0255) {
-            let xSpec = CGFloat(randomSource.nextUniform()) * frame.width
-            let ySpec = frame.height
+            let x = CGFloat(randomSource.nextUniform()) * frame.width
+            let y = frame.height
             if notClicked {
-                addSpecial(at:CGPoint(x: xSpec, y: ySpec))
+                addSpecial(at:CGPoint(x: x, y: y))
+            }
+        }
+        else if ( choice <= 0.02415) && (choice >= 0.0235) {
+            let x = CGFloat(randomSource.nextUniform()) * frame.width
+            let y = frame.height
+            if notClicked {
+                addLife(at:CGPoint(x: x, y: y))
             }
         }
     }
-
-
     func addFruit(at location: CGPoint) {
         if points <= 10 {
             let random = Int(randomSource.nextUniform() * 9)
@@ -300,8 +303,24 @@ class Game: SKScene, SKPhysicsContactDelegate {
         SpecialApple.run(SKAction.move(to: CGPoint(x: SpecialApple.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
         SpecialApple.name = "Rainbow"
         addChild(SpecialApple)
-
         
+    }
+    func addLife(at location: CGPoint) {
+        if points >= 50 {
+            let santoApple = SKTexture(imageNamed: "santo4L.png")
+            let santoLife = SKSpriteNode(texture: santoApple)
+            let spawnTime = Double.random(in: 2.5...3.7)
+            let santoAppleBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            santoLife.position = location
+            santoLife.physicsBody = santoAppleBody
+            santoAppleBody.isDynamic = true
+            santoAppleBody.affectedByGravity = false
+            santoAppleBody.contactTestBitMask = 0xffffffff
+            santoLife.run(SKAction.move(to: CGPoint(x: santoLife.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            santoLife.name = "Santo"
+            addChild(santoLife)
+
+        }
     }
     func basketAnim() {
         let aniAction = SKAction.setTexture(animation)
@@ -353,6 +372,21 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
 
                 }
+                else if (nameA == "Basket" && nameB == "Santo") {
+                    nodeB.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    livesLabel.text = String("Lives: \(lives + 1) ❤️")
+                    lives += 1
+                    basketAnim()
+                }
+                else if (nameB == "Basket" && nameA == "Santo") {
+                    nodeA.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
+                    livesLabel.text = String("Lives: \(lives + 1) ❤️")
+                    lives += 1
+                    basketAnim()
+                }
+
                 else if (nameA == "Ground" && nameB == "Rainbow") {
                     nodeB.run(SKAction.removeFromParent())
                     livesLabel.text = String("Lives: \(lives - 1) ❤️")

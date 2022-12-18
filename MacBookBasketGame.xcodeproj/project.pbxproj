@@ -8,14 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		103A2FC7294B647300FD4E69 /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2FC6294B647300FD4E69 /* PauseScreen.swift */; };
-		103A2FCB294B70A200FD4E69 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 103A2FCA294B70A200FD4E69 /* pause.png */; };
 		106E15F72944AC030026A7F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15F52944AC030026A7F5 /* Main.storyboard */; };
-		106E15F92944AC040026A7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106E15F82944AC040026A7F5 /* Assets.xcassets */; };
 		106E15FC2944AC040026A7F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */; };
 		106E16032944AC7A0026A7F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16022944AC7A0026A7F5 /* AppDelegate.swift */; };
-		106E160A2944AC900026A7F5 /* apple2.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16052944AC900026A7F5 /* apple2.png */; };
 		106E160C2944AC900026A7F5 /* appleeatsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 106E16072944AC900026A7F5 /* appleeatsound.mp3 */; };
-		106E16102944AC980026A7F5 /* apple3.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E160E2944AC980026A7F5 /* apple3.png */; };
 		106E16112944AC980026A7F5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E160F2944AC980026A7F5 /* Game.swift */; };
 		106E16152944ACAA0026A7F5 /* Gameover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16142944ACAA0026A7F5 /* Gameover.swift */; };
 		106E161B2944ACB10026A7F5 /* Santo.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16162944ACB10026A7F5 /* Santo.png */; };
@@ -23,31 +19,31 @@
 		106E161D2944ACB10026A7F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E16182944ACB10026A7F5 /* ViewController.swift */; };
 		106E161E2944ACB10026A7F5 /* SeminarRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 106E16192944ACB10026A7F5 /* SeminarRoom.png */; };
 		107D534E2944BC86007D0553 /* gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 107D534D2944BC86007D0553 /* gameplay.mp3 */; };
-		1080D546294567910002B7A4 /* apple1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1080D545294567910002B7A4 /* apple1.png */; };
 		108176C2294A1A550036D067 /* GameComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108176C1294A1A550036D067 /* GameComplete.swift */; };
-		108176C4294A8BCC0036D067 /* arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 108176C3294A8BCC0036D067 /* arrows.png */; };
 		108F41C62948007700B4C539 /* Barcade3D-YZBj.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */; };
 		108F41C82948014200B4C539 /* BarcadeBold-B8nV.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C72948014200B4C539 /* BarcadeBold-B8nV.otf */; };
 		108F41CA2948022200B4C539 /* BarcadeNoBarBold-gzXq.otf in Resources */ = {isa = PBXBuildFile; fileRef = 108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */; };
-		10AD30232945570800CFDD9E /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 10AD30222945570800CFDD9E /* Player.png */; };
-		10B65BFE2945665500319433 /* rainbowApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 10B65BFD2945665500319433 /* rainbowApple.png */; };
 		10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10C759032944BBBA00779183 /* gameTheme.mp3 */; };
-		10E911422948DBC500E5F04A /* Animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E911412948DBC500E5F04A /* Animation.png */; };
+		10E7D952294ECEB700A8B213 /* Animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D94D294ECEB700A8B213 /* Animation.png */; };
+		10E7D953294ECEB700A8B213 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D94E294ECEB700A8B213 /* pause.png */; };
+		10E7D954294ECEB700A8B213 /* santo4L.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D94F294ECEB700A8B213 /* santo4L.png */; };
+		10E7D955294ECEB700A8B213 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D950294ECEB700A8B213 /* Player.png */; };
+		10E7D956294ECEB700A8B213 /* apple1.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D951294ECEB700A8B213 /* apple1.png */; };
+		10E7D959294ECEC700A8B213 /* apple3.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D957294ECEC700A8B213 /* apple3.png */; };
+		10E7D95A294ECEC700A8B213 /* apple2.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D958294ECEC700A8B213 /* apple2.png */; };
+		10E7D95C294ECECD00A8B213 /* rainbowApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D95B294ECECD00A8B213 /* rainbowApple.png */; };
+		10E7D95E294ECF1000A8B213 /* arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E7D95D294ECF1000A8B213 /* arrows.png */; };
 		10FA0E822947633D00334B7E /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA0E812947633D00334B7E /* Intro.swift */; };
 		10FA0E842947724700334B7E /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA0E832947724700334B7E /* Leaderboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		103A2FC6294B647300FD4E69 /* PauseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScreen.swift; sourceTree = "<group>"; };
-		103A2FCA294B70A200FD4E69 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		106E15E82944AC030026A7F5 /* MacBookBasketGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBookBasketGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106E15F62944AC030026A7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		106E15F82944AC040026A7F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		106E15FB2944AC040026A7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		106E16022944AC7A0026A7F5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		106E16052944AC900026A7F5 /* apple2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple2.png; sourceTree = "<group>"; };
 		106E16072944AC900026A7F5 /* appleeatsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = appleeatsound.mp3; sourceTree = "<group>"; };
-		106E160E2944AC980026A7F5 /* apple3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple3.png; sourceTree = "<group>"; };
 		106E160F2944AC980026A7F5 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		106E16142944ACAA0026A7F5 /* Gameover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameover.swift; sourceTree = "<group>"; };
 		106E16162944ACB10026A7F5 /* Santo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santo.png; sourceTree = "<group>"; };
@@ -55,17 +51,21 @@
 		106E16182944ACB10026A7F5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		106E16192944ACB10026A7F5 /* SeminarRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeminarRoom.png; sourceTree = "<group>"; };
 		107D534D2944BC86007D0553 /* gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplay.mp3; sourceTree = "<group>"; };
-		1080D545294567910002B7A4 /* apple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple1.png; sourceTree = "<group>"; };
 		108176C1294A1A550036D067 /* GameComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameComplete.swift; sourceTree = "<group>"; };
-		108176C3294A8BCC0036D067 /* arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows.png; sourceTree = "<group>"; };
 		108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barcade3D-YZBj.otf"; sourceTree = "<group>"; };
 		108F41C72948014200B4C539 /* BarcadeBold-B8nV.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarcadeBold-B8nV.otf"; sourceTree = "<group>"; };
 		108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BarcadeNoBarBold-gzXq.otf"; sourceTree = "<group>"; };
 		10938B912947DD180030804E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		10AD30222945570800CFDD9E /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
-		10B65BFD2945665500319433 /* rainbowApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rainbowApple.png; sourceTree = "<group>"; };
 		10C759032944BBBA00779183 /* gameTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameTheme.mp3; sourceTree = "<group>"; };
-		10E911412948DBC500E5F04A /* Animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Animation.png; sourceTree = "<group>"; };
+		10E7D94D294ECEB700A8B213 /* Animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Animation.png; path = MacBookBasketGame/Animation.png; sourceTree = SOURCE_ROOT; };
+		10E7D94E294ECEB700A8B213 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = MacBookBasketGame/pause.png; sourceTree = SOURCE_ROOT; };
+		10E7D94F294ECEB700A8B213 /* santo4L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = santo4L.png; path = MacBookBasketGame/santo4L.png; sourceTree = SOURCE_ROOT; };
+		10E7D950294ECEB700A8B213 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player.png; path = MacBookBasketGame/Player.png; sourceTree = SOURCE_ROOT; };
+		10E7D951294ECEB700A8B213 /* apple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple1.png; path = MacBookBasketGame/apple1.png; sourceTree = SOURCE_ROOT; };
+		10E7D957294ECEC700A8B213 /* apple3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple3.png; path = MacBookBasketGame/apple3.png; sourceTree = SOURCE_ROOT; };
+		10E7D958294ECEC700A8B213 /* apple2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = apple2.png; path = MacBookBasketGame/apple2.png; sourceTree = SOURCE_ROOT; };
+		10E7D95B294ECECD00A8B213 /* rainbowApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rainbowApple.png; path = MacBookBasketGame/rainbowApple.png; sourceTree = SOURCE_ROOT; };
+		10E7D95D294ECF1000A8B213 /* arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrows.png; path = MacBookBasketGame/arrows.png; sourceTree = SOURCE_ROOT; };
 		10FA0E812947633D00334B7E /* Intro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		10FA0E832947724700334B7E /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,37 +100,45 @@
 		106E15EA2944AC030026A7F5 /* MacBookBasketGame */ = {
 			isa = PBXGroup;
 			children = (
+				10E7D94C294ECE7D00A8B213 /* Game Assets */,
 				10938B912947DD180030804E /* Info.plist */,
 				106E16022944AC7A0026A7F5 /* AppDelegate.swift */,
-				108176C1294A1A550036D067 /* GameComplete.swift */,
-				106E15F52944AC030026A7F5 /* Main.storyboard */,
-				106E15F82944AC040026A7F5 /* Assets.xcassets */,
-				106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */,
-				108176C3294A8BCC0036D067 /* arrows.png */,
-				10B65BFD2945665500319433 /* rainbowApple.png */,
-				1080D545294567910002B7A4 /* apple1.png */,
-				106E16052944AC900026A7F5 /* apple2.png */,
-				106E160E2944AC980026A7F5 /* apple3.png */,
-				10E911412948DBC500E5F04A /* Animation.png */,
-				10AD30222945570800CFDD9E /* Player.png */,
-				103A2FCA294B70A200FD4E69 /* pause.png */,
 				106E160F2944AC980026A7F5 /* Game.swift */,
+				10FA0E812947633D00334B7E /* Intro.swift */,
 				103A2FC6294B647300FD4E69 /* PauseScreen.swift */,
-				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
-				107D534D2944BC86007D0553 /* gameplay.mp3 */,
+				106E16142944ACAA0026A7F5 /* Gameover.swift */,
+				108176C1294A1A550036D067 /* GameComplete.swift */,
+				10FA0E832947724700334B7E /* Leaderboard.swift */,
+				106E16182944ACB10026A7F5 /* ViewController.swift */,
+				106E15F52944AC030026A7F5 /* Main.storyboard */,
+				106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */,
+			);
+			path = MacBookBasketGame;
+			sourceTree = "<group>";
+		};
+		10E7D94C294ECE7D00A8B213 /* Game Assets */ = {
+			isa = PBXGroup;
+			children = (
 				108F41C92948022200B4C539 /* BarcadeNoBarBold-gzXq.otf */,
 				108F41C72948014200B4C539 /* BarcadeBold-B8nV.otf */,
 				108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */,
-				10C759032944BBBA00779183 /* gameTheme.mp3 */,
-				10FA0E812947633D00334B7E /* Intro.swift */,
-				106E16142944ACAA0026A7F5 /* Gameover.swift */,
-				10FA0E832947724700334B7E /* Leaderboard.swift */,
+				10E7D94D294ECEB700A8B213 /* Animation.png */,
+				10E7D95D294ECF1000A8B213 /* arrows.png */,
+				10E7D951294ECEB700A8B213 /* apple1.png */,
+				10E7D958294ECEC700A8B213 /* apple2.png */,
+				10E7D957294ECEC700A8B213 /* apple3.png */,
+				10E7D95B294ECECD00A8B213 /* rainbowApple.png */,
+				10E7D94E294ECEB700A8B213 /* pause.png */,
+				10E7D950294ECEB700A8B213 /* Player.png */,
 				106E16162944ACB10026A7F5 /* Santo.png */,
+				10E7D94F294ECEB700A8B213 /* santo4L.png */,
 				106E16172944ACB10026A7F5 /* santoFace.png */,
 				106E16192944ACB10026A7F5 /* SeminarRoom.png */,
-				106E16182944ACB10026A7F5 /* ViewController.swift */,
+				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
+				107D534D2944BC86007D0553 /* gameplay.mp3 */,
+				10C759032944BBBA00779183 /* gameTheme.mp3 */,
 			);
-			path = MacBookBasketGame;
+			path = "Game Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,26 +200,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E7D956294ECEB700A8B213 /* apple1.png in Resources */,
 				107D534E2944BC86007D0553 /* gameplay.mp3 in Resources */,
-				10B65BFE2945665500319433 /* rainbowApple.png in Resources */,
-				103A2FCB294B70A200FD4E69 /* pause.png in Resources */,
-				10E911422948DBC500E5F04A /* Animation.png in Resources */,
-				10AD30232945570800CFDD9E /* Player.png in Resources */,
+				10E7D953294ECEB700A8B213 /* pause.png in Resources */,
 				108F41CA2948022200B4C539 /* BarcadeNoBarBold-gzXq.otf in Resources */,
 				106E161C2944ACB10026A7F5 /* santoFace.png in Resources */,
 				106E15F72944AC030026A7F5 /* Main.storyboard in Resources */,
-				108176C4294A8BCC0036D067 /* arrows.png in Resources */,
+				10E7D959294ECEC700A8B213 /* apple3.png in Resources */,
 				10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */,
-				1080D546294567910002B7A4 /* apple1.png in Resources */,
+				10E7D95C294ECECD00A8B213 /* rainbowApple.png in Resources */,
 				106E161E2944ACB10026A7F5 /* SeminarRoom.png in Resources */,
+				10E7D95A294ECEC700A8B213 /* apple2.png in Resources */,
+				10E7D95E294ECF1000A8B213 /* arrows.png in Resources */,
 				108F41C82948014200B4C539 /* BarcadeBold-B8nV.otf in Resources */,
-				106E16102944AC980026A7F5 /* apple3.png in Resources */,
 				106E160C2944AC900026A7F5 /* appleeatsound.mp3 in Resources */,
-				106E15F92944AC040026A7F5 /* Assets.xcassets in Resources */,
-				106E160A2944AC900026A7F5 /* apple2.png in Resources */,
+				10E7D952294ECEB700A8B213 /* Animation.png in Resources */,
 				106E161B2944ACB10026A7F5 /* Santo.png in Resources */,
 				108F41C62948007700B4C539 /* Barcade3D-YZBj.otf in Resources */,
+				10E7D954294ECEB700A8B213 /* santo4L.png in Resources */,
 				106E15FC2944AC040026A7F5 /* LaunchScreen.storyboard in Resources */,
+				10E7D955294ECEB700A8B213 /* Player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
