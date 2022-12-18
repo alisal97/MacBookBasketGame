@@ -288,7 +288,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
             addChild(fruit)
             
         }
-
+        
     }
     func addSpecial(at location: CGPoint) {
         let specApple = SKTexture(imageNamed: "rainbowApple.png")
@@ -442,15 +442,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
 
     
-//    func winningPoints() {
-//        if (points >= 31) {
-//            if let view = view {
-//                let outro = Outro(size: size)
-//                let transition = SKTransition.fade(withDuration: 3.0)
-//                view.presentScene(outro, transition: transition)
-//            }
-//        }
-//    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {

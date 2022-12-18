@@ -12,10 +12,11 @@ class Intro: SKScene {
     var leaderboardButton: SKLabelNode!
     
     override func didMove(to view: SKView) {
+        self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         let background = SKSpriteNode(imageNamed: "SeminarRoom.png")
         background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         addChild(background)
-        self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
+
         createSceneContent()
         
     }
