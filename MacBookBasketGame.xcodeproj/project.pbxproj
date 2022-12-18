@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102D9F2A294EF2C2003E7505 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102D9F29294EF2C2003E7505 /* assets.xcassets */; };
+		102D9F2C294EF2DF003E7505 /* appIconNC2habibi.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D9F2B294EF2DF003E7505 /* appIconNC2habibi.png */; };
 		103A2FC7294B647300FD4E69 /* PauseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2FC6294B647300FD4E69 /* PauseScreen.swift */; };
 		106E15F72944AC030026A7F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15F52944AC030026A7F5 /* Main.storyboard */; };
 		106E15FC2944AC040026A7F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106E15FA2944AC040026A7F5 /* LaunchScreen.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102D9F29294EF2C2003E7505 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		102D9F2B294EF2DF003E7505 /* appIconNC2habibi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appIconNC2habibi.png; path = assets.xcassets/AppIcon.appiconset/appIconNC2habibi.png; sourceTree = "<group>"; };
 		103A2FC6294B647300FD4E69 /* PauseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScreen.swift; sourceTree = "<group>"; };
 		106E15E82944AC030026A7F5 /* MacBookBasketGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBookBasketGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106E15F62944AC030026A7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				108F41C52948007700B4C539 /* Barcade3D-YZBj.otf */,
 				10E7D94D294ECEB700A8B213 /* Animation.png */,
 				10E7D95D294ECF1000A8B213 /* arrows.png */,
+				102D9F2B294EF2DF003E7505 /* appIconNC2habibi.png */,
 				10E7D951294ECEB700A8B213 /* apple1.png */,
 				10E7D958294ECEC700A8B213 /* apple2.png */,
 				10E7D957294ECEC700A8B213 /* apple3.png */,
@@ -137,6 +142,7 @@
 				106E16072944AC900026A7F5 /* appleeatsound.mp3 */,
 				107D534D2944BC86007D0553 /* gameplay.mp3 */,
 				10C759032944BBBA00779183 /* gameTheme.mp3 */,
+				102D9F29294EF2C2003E7505 /* assets.xcassets */,
 			);
 			path = "Game Assets";
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 				10E7D953294ECEB700A8B213 /* pause.png in Resources */,
 				108F41CA2948022200B4C539 /* BarcadeNoBarBold-gzXq.otf in Resources */,
 				106E161C2944ACB10026A7F5 /* santoFace.png in Resources */,
+				102D9F2A294EF2C2003E7505 /* assets.xcassets in Resources */,
 				106E15F72944AC030026A7F5 /* Main.storyboard in Resources */,
 				10E7D959294ECEC700A8B213 /* apple3.png in Resources */,
 				10C759042944BBBA00779183 /* gameTheme.mp3 in Resources */,
@@ -218,6 +225,7 @@
 				106E161B2944ACB10026A7F5 /* Santo.png in Resources */,
 				108F41C62948007700B4C539 /* Barcade3D-YZBj.otf in Resources */,
 				10E7D954294ECEB700A8B213 /* santo4L.png in Resources */,
+				102D9F2C294EF2DF003E7505 /* appIconNC2habibi.png in Resources */,
 				106E15FC2944AC040026A7F5 /* LaunchScreen.storyboard in Resources */,
 				10E7D955294ECEB700A8B213 /* Player.png in Resources */,
 			);

@@ -6,12 +6,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var oldApples: Int = UserDefaults.standard.integer(forKey: "Apples");
-//    var oldLeaderboard: Any = UserDefaults.standard.array(forKey: "LB")
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         totalApples += oldApples
+        
+        sleep(1)
         return true
     }
 
