@@ -167,22 +167,22 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
-
-       else if points >= 15 {
-           let random = Int(randomSource.nextUniform() * 11)
-           let spawnTime = Double.random(in: 0.7...0.9)
-           let fruitChoice = random % fruitTextures.count
-           let fruitTexture = fruitTextures[fruitChoice]
-           let fruit = SKSpriteNode(texture: fruitTexture)
-           fruit.position = location
-           let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
-           fruitBody.isDynamic = true
-           fruitBody.affectedByGravity = false
-           fruitBody.contactTestBitMask = 0xffffffff
-           fruit.physicsBody = fruitBody
-           fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
-           fruit.name = "Fruit"
-           addChild(fruit)
+        
+        else if points >= 15 {
+            let random = Int(randomSource.nextUniform() * 11)
+            let spawnTime = Double.random(in: 0.7...0.9)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
         }
         else if points >= 20 {
             let random = Int(randomSource.nextUniform() * 13)
@@ -248,11 +248,43 @@ class Game: SKScene, SKPhysicsContactDelegate {
             fruit.name = "Fruit"
             addChild(fruit)
         }
-        
-
+        else if points >= 100 {
+            let random = Int(randomSource.nextUniform() * 15)
+            let spawnTime = Double.random(in: 0.001...0.0039)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
+            
+            
+        }
+        else if points >= 150 {
+            let random = Int(randomSource.nextUniform() * 15)
+            let spawnTime = Double.random(in: 0.0003...0.0007)
+            let fruitChoice = random % fruitTextures.count
+            let fruitTexture = fruitTextures[fruitChoice]
+            let fruit = SKSpriteNode(texture: fruitTexture)
+            fruit.position = location
+            let fruitBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: 1))
+            fruitBody.isDynamic = true
+            fruitBody.affectedByGravity = false
+            fruitBody.contactTestBitMask = 0xffffffff
+            fruit.physicsBody = fruitBody
+            fruit.run(SKAction.move(to: CGPoint(x: fruit.position.x, y: 10.0), duration: TimeInterval(floatLiteral: spawnTime)))
+            fruit.name = "Fruit"
+            addChild(fruit)
+            
+        }
 
     }
-
     func addSpecial(at location: CGPoint) {
         let specApple = SKTexture(imageNamed: "rainbowApple.png")
         let SpecialApple = SKSpriteNode(texture: specApple)
@@ -269,6 +301,13 @@ class Game: SKScene, SKPhysicsContactDelegate {
 
         
     }
+    func basketAnim() {
+        let aniAction = SKAction.setTexture(animation)
+        let aniTime = SKAction.wait(forDuration: 0.19)
+        let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
+        let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
+        basket.run(aniSeq)
+    }
 
 
     func didBegin(_ contact: SKPhysicsContact) {
@@ -281,11 +320,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     pointsLabel.text = String("Collected: \(points + 3)")
                     points += 3
                     totalApples += 3
-                    let aniAction = SKAction.setTexture(animation)
-                    let aniTime = SKAction.wait(forDuration: 0.19)
-                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
-                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
-                    basket.run(aniSeq)
+                    basketAnim()
 
                 }
                 else if (nameB == "Basket" && nameA == "Rainbow") {
@@ -294,37 +329,26 @@ class Game: SKScene, SKPhysicsContactDelegate {
                     pointsLabel.text = String("Collected: \(points + 3)")
                     points += 3
                     totalApples += 3
-                    let aniAction = SKAction.setTexture(animation)
-                    let aniTime = SKAction.wait(forDuration: 0.19)
-                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
-                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
-                    basket.run(aniSeq)
+                    basketAnim()
 
                 }
                 else if (nameA == "Basket" && nameB == "Fruit") {
                     nodeB.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
                     totalApples += 1
-                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    let aniAction = SKAction.setTexture(animation)
-                    let aniTime = SKAction.wait(forDuration: 0.19)
-                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
-                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
-                    basket.run(aniSeq)
+                    basketAnim()
 
                 }
                 else if (nameB == "Basket" && nameA == "Fruit") {
                     nodeA.run(SKAction.removeFromParent())
+                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
                     pointsLabel.text = String("Collected: \(points + 1)")
                     points += 1
                     totalApples += 1
-                    self.run(SKAction.playSoundFileNamed("appleeatsound.mp3", waitForCompletion: false))
-                    let aniAction = SKAction.setTexture(animation)
-                    let aniTime = SKAction.wait(forDuration: 0.19)
-                    let aniRevert = SKAction.setTexture(SKTexture(imageNamed: "Player.png"))
-                    let aniSeq = SKAction.sequence([aniAction,aniTime,aniRevert])
-                    basket.run(aniSeq)
+                    basketAnim()
+
 
                 }
                 else if (nameA == "Ground" && nameB == "Rainbow") {

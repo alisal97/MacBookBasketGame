@@ -43,6 +43,13 @@ class Gameover: SKScene {
         playButton.name = "Play Button"
         addChild(playButton)
         
+        let scoreNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
+        scoreNode.fontColor = UIColor.green
+        scoreNode.text = ("Final Score: \(points)")
+        scoreNode.fontSize = CGFloat(frame.height * 0.039)
+        scoreNode.position = CGPoint(x: frame.midX ,y: frame.midY * 1.7)
+        addChild(scoreNode)
+        
 //
 //        let leadRect = SKSpriteNode(color: UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7), size: CGSize(width: 300 , height: 55))
 //

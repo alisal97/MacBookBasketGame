@@ -35,6 +35,13 @@ class GameComplete: SKScene {
         textNode.name = "Welcome Label"
         addChild(textNode)
         
+        let scoreNode = SKLabelNode(fontNamed: "Barcade No Bar Bold")
+        scoreNode.fontColor = UIColor.green
+        scoreNode.text = ("Final Score: \(points)")
+        scoreNode.fontSize = CGFloat(frame.height * 0.039)
+        scoreNode.position = CGPoint(x: frame.midX ,y: frame.midY * 1.7)
+        addChild(scoreNode)
+        
         let apples = SKLabelNode(fontNamed: "Barcade Bold")
         apples.text = "SAP Coins: \(totalApples)"
         apples.fontColor = UIColor.green
