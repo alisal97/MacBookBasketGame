@@ -32,7 +32,7 @@ class Game: SKScene, SKPhysicsContactDelegate {
         let backgroundMusic = SKAudioNode(fileNamed: "gameplay.mp3")
         backgroundMusic.autoplayLooped = true
         backgroundMusic.isPositional = false
-        backgroundMusic.run(SKAction.changeVolume(to: 0.15, duration: 0))
+        backgroundMusic.run(SKAction.changeVolume(to: 0.21, duration: 0))
         self.addChild(backgroundMusic)
         createSceneContent()
 

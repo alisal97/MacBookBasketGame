@@ -24,7 +24,7 @@ class Leaderboard: SKScene {
         addChild(background)
         self.run(SKAction.playSoundFileNamed("gameTheme.mp3", waitForCompletion: false))
         
-        let rectangle = SKSpriteNode(color: UIColor(red: 25/255, green: 0/255, blue: 25/255, alpha: 0.85), size: CGSize(width: frame.maxX, height: frame.maxY))
+        let rectangle = SKSpriteNode(color: UIColor(red: 25/255, green: 0/255, blue: 25/255, alpha: 0.59), size: CGSize(width: frame.maxX, height: frame.maxY))
         rectangle.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         rectangle.name = "Rectangle"
         addChild(rectangle)
