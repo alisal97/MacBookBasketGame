@@ -8,10 +8,6 @@ struct leaderboardInfo: Codable {
     var gameScore: Int
 }
 
-
-
-
-
 class Leaderboard: SKScene {
     var exitButton: SKLabelNode!
     var leaderboardView: SKLabelNode!
@@ -28,8 +24,6 @@ class Leaderboard: SKScene {
         rectangle.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
         rectangle.name = "Rectangle"
         addChild(rectangle)
-
-        
         
         var i: Int = 1
         for e in leaderboardScores {
